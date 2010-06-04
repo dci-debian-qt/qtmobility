@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@ --parallel --list-missing --dbg-package=libqtmobility1-dbg --with pkgkde_symbolshelper
+
+override_dh_auto_configure:
+	./configure \
+	    -prefix "/usr" \
+	    -headerdir "/usr/include/qt4" \
+	    -libdir "/usr/lib" \
+	    -bindir "/usr/bin" \
+	    -plugindir "/usr/lib/qt4/plugins" \
+	    -examples \
+	    -modules "bearer contacts location publishsubscribe sensors serviceframework systeminfo serviceframework versit"
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -f tools/tools.pro.user

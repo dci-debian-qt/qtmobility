@@ -1,0 +1,5 @@
+qtmobility (1.0.0+git5314+gf0eab15-1) experimental; urgency=low
+
+  * Initial release (Closes: #nnnn)
+
+ -- Fathi Boudra <fabo@debian.org>  Thu, 27 May 2010 03:20:51 +0300

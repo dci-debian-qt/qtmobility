@@ -1,0 +1,54 @@
+Description: Fix incorrect copy2build output value
+
+copy2build output is set to $$[QT_INSTALL_PREFIX] base path. 
+It caused a build failure when users are non-root (ie 
+autobuilders): 
+cp: cannot create regular file `/usr/imports/QtMobility/serviceframework/qmldir': No such file or directory
+
+Use $$QT_MOBILITY_BUILD_TREE as base path.
+
+Remove useless DESTDIR definitions on related QML plugins.
+
+Author: Fathi Boudra <fabo@debian.org>
+
+--- a/plugins/qimportbase.pri
++++ b/plugins/qimportbase.pri
+@@ -12,7 +12,7 @@ isEmpty(TARGET) {
+ 
+ QMLDIRFILE = $${_PRO_FILE_PWD_}/qmldir
+ copy2build.input = QMLDIRFILE
+-copy2build.output = $$[QT_INSTALL_PREFIX]/imports/$$TARGETPATH/qmldir
++copy2build.output = $$QT_MOBILITY_BUILD_TREE/$$[QT_INSTALL_PREFIX]/imports/$$TARGETPATH/qmldir
+ !contains(TEMPLATE_PREFIX, vc):copy2build.variable_out = PRE_TARGETDEPS
+ copy2build.commands = $$QMAKE_COPY ${QMAKE_FILE_IN} ${QMAKE_FILE_OUT}
+ copy2build.name = COPY ${QMAKE_FILE_IN}
+--- a/plugins/declarative/multimedia/multimedia.pro
++++ b/plugins/declarative/multimedia/multimedia.pro
+@@ -28,7 +28,6 @@ SOURCES += \
+ CONFIG += mobility
+ MOBILITY += multimedia
+ 
+-DESTDIR = $$[QT_INSTALL_PREFIX]/imports/$$TARGETPATH
+ target.path = $$[QT_INSTALL_IMPORTS]/$$TARGETPATH
+ 
+ qmldir.files += $$PWD/qmldir
+--- a/plugins/declarative/publishsubscribe/publishsubscribe.pro
++++ b/plugins/declarative/publishsubscribe/publishsubscribe.pro
+@@ -14,7 +14,6 @@ SOURCES += publishsubscribe.cpp
+ CONFIG += mobility
+ MOBILITY += publishsubscribe
+ 
+-DESTDIR = $$[QT_INSTALL_PREFIX]/imports/$$TARGETPATH
+ target.path = $$[QT_INSTALL_IMPORTS]/$$TARGETPATH
+ 
+ qmldir.files += $$PWD/qmldir
+--- a/plugins/declarative/serviceframework/serviceframework.pro
++++ b/plugins/declarative/serviceframework/serviceframework.pro
+@@ -16,7 +16,6 @@ SOURCES += qdeclarativeservice.cpp \
+ CONFIG += mobility
+ MOBILITY += serviceframework
+ 
+-DESTDIR = $$[QT_INSTALL_PREFIX]/imports/$$TARGETPATH
+ target.path = $$[QT_INSTALL_IMPORTS]/$$TARGETPATH
+ 
+ qmldir.files += $$PWD/qmldir

@@ -1,0 +1,118 @@
+Description: Remove rpath
+Author: Fathi Boudra <fabo@debian.org>
+
+--- a/common.pri
++++ b/common.pri
+@@ -106,7 +106,6 @@ contains(build_unit_tests, yes):DEFINES+
+     MOC_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/moc
+     RCC_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/rcc
+     UI_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/ui
+-    QMAKE_RPATHDIR += $$QT_MOBILITY_LIB
+ } else {
+     # Unit test code (no plugins! test plugins are just normal plugins installed elsewhere)
+     QT *= testlib
+@@ -117,7 +116,6 @@ contains(build_unit_tests, yes):DEFINES+
+     MOC_DIR = $$OUTPUT_DIR/build/tests/$$SUBDIRPART/$$TARGET/moc
+     RCC_DIR = $$OUTPUT_DIR/build/tests/$$SUBDIRPART/$$TARGET/rcc
+     UI_DIR = $$OUTPUT_DIR/build/tests/$$SUBDIRPART/$$TARGET/ui
+-    QMAKE_RPATHDIR += $$OUTPUT_DIR/lib
+ }
+ 
+ contains(TEMPLATE,.*lib):DEFINES += QT_SHARED
+--- a/examples/audiodevices/audiodevices.pro
++++ b/examples/audiodevices/audiodevices.pro
+@@ -7,8 +7,6 @@ include(../examples.pri)
+ CONFIG += mobility
+ MOBILITY = multimedia
+ 
+-QMAKE_RPATHDIR += $$DESTDIR
+-
+ HEADERS       = audiodevices.h
+ 
+ SOURCES       = audiodevices.cpp \
+--- a/examples/audioinput/audioinput.pro
++++ b/examples/audioinput/audioinput.pro
+@@ -7,8 +7,6 @@ include(../examples.pri)
+ CONFIG += mobility
+ MOBILITY = multimedia
+ 
+-QMAKE_RPATHDIR += $$DESTDIR
+-
+ HEADERS       = audioinput.h
+ 
+ SOURCES       = audioinput.cpp \
+--- a/examples/audiooutput/audiooutput.pro
++++ b/examples/audiooutput/audiooutput.pro
+@@ -7,8 +7,6 @@ include(../examples.pri)
+ CONFIG += mobility
+ MOBILITY = multimedia
+ 
+-QMAKE_RPATHDIR += $$DESTDIR
+-
+ HEADERS       = audiooutput.h
+ 
+ SOURCES       = audiooutput.cpp \
+--- a/examples/audiorecorder/audiorecorder.pro
++++ b/examples/audiorecorder/audiorecorder.pro
+@@ -7,8 +7,6 @@ include(../examples.pri)
+ CONFIG += mobility
+ MOBILITY = multimedia
+ 
+-QMAKE_RPATHDIR += $$DESTDIR
+-
+ HEADERS = \
+     audiorecorder.h
+   
+--- a/examples/examples.pri
++++ b/examples/examples.pri
+@@ -26,7 +26,6 @@ UI_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART
+ OBJECTS_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET
+ mac:LIBS+= -F$$OUTPUT_DIR/lib
+ LIBS+= -L$$OUTPUT_DIR/lib
+-QMAKE_RPATHDIR+=$$OUTPUT_DIR/lib
+ INCLUDEPATH+= $$QT_MOBILITY_SOURCE_TREE/src/global
+ 
+ !plugin {
+--- a/examples/radio/radio.pro
++++ b/examples/radio/radio.pro
+@@ -7,8 +7,6 @@ include(../examples.pri)
+ CONFIG += mobility
+ MOBILITY = multimedia
+ 
+-QMAKE_RPATHDIR += $$DESTDIR
+-
+ HEADERS = \
+     radio.h
+   
+--- a/examples/videographicsitem/videographicsitem.pro
++++ b/examples/videographicsitem/videographicsitem.pro
+@@ -7,8 +7,6 @@ include(../examples.pri)
+ CONFIG += mobility
+ MOBILITY = multimedia
+ 
+-QMAKE_RPATHDIR += $$DESTDIR
+-
+ contains(QT_CONFIG, opengl): QT += opengl
+ 
+ HEADERS   += videoplayer.h \
+--- a/examples/videowidget/videowidget.pro
++++ b/examples/videowidget/videowidget.pro
+@@ -7,8 +7,6 @@ include(../examples.pri)
+ CONFIG += mobility
+ MOBILITY = multimedia
+ 
+-QMAKE_RPATHDIR += $$DESTDIR
+-
+ HEADERS = \
+     videoplayer.h \
+     videowidget.h \
+--- a/features/mobility.prf.template
++++ b/features/mobility.prf.template
+@@ -13,7 +13,6 @@
+ }
+ mac: LIBS += -F$${MOBILITY_LIB}
+ LIBS+= -L$${MOBILITY_LIB}
+-QMAKE_RPATHDIR+=$${MOBILITY_LIB}
+ 
+ contains(MOBILITY, bearer) {
+     DEFINES += QT_MOBILITY_BEARER

@@ -1,0 +1,3 @@
+01_fix_ftbfs_incorrect_copy2build_output_value.diff
+02_no_rpath.diff
+debian-changes-1.0.0+git5314+gf0eab15-1
