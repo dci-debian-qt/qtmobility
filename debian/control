@@ -15,25 +15,25 @@ Homepage: http://labs.trolltech.com/page/Projects/QtMobility
 Vcs-Git: git://git.debian.org/pkg-kde/qtmobility.git
 Vcs-Browser: http://git.debian.org/?p=pkg-kde/qtmobility.git;a=summary
 
-Package: libqtmobility-dev
+Package: qtmobility-dev
 Section: libdevel
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
- libqtmobility1-bearer (= ${binary:Version}),
- libqtmobility1-contacts (= ${binary:Version}),
- libqtmobility1-location (= ${binary:Version}),
- libqtmobility1-publishsubscribe (= ${binary:Version}),
- libqtmobility1-sensors (= ${binary:Version}),
- libqtmobility1-serviceframework (= ${binary:Version}),
- libqtmobility1-systeminfo (= ${binary:Version}),
- libqtmobility1-versit (= ${binary:Version})
+ libqtbearer1 (= ${binary:Version}),
+ libqtcontacts1 (= ${binary:Version}),
+ libqtlocation1 (= ${binary:Version}),
+ libqtpublishsubscribe1 (= ${binary:Version}),
+ libqtsensors1 (= ${binary:Version}),
+ libqtserviceframework1 (= ${binary:Version}),
+ libqtsysteminfo1 (= ${binary:Version}),
+ libqtversit1 (= ${binary:Version})
 Description: APIs for mobile device functionality - development files
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
  This package contains the development files needed to build Qt applications
  using Qt Mobility libraries.
 
-Package: libqtmobility1-bearer
+Package: libqtbearer1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Qt Mobility Bearer Management module
@@ -41,7 +41,7 @@ Description: Qt Mobility Bearer Management module
  .
  This package contains an API to control the system's connectivity state.
 
-Package: libqtmobility1-contacts
+Package: libqtcontacts1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Qt Mobility Contacts module
@@ -50,7 +50,7 @@ Description: Qt Mobility Contacts module
  This package contains an API enabling clients to request contact data from
  local or remote backends.
 
-Package: libqtmobility1-location
+Package: libqtlocation1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Qt Mobility Location module
@@ -59,7 +59,7 @@ Description: Qt Mobility Location module
  This package contains the Location API. It provides a library for distributing
  and receiving location data using arbitrary data sources.
 
-Package: libqtmobility1-publishsubscribe
+Package: libqtpublishsubscribe1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Qt Mobility Publish and Subscribe module
@@ -69,7 +69,7 @@ Description: Qt Mobility Publish and Subscribe module
  It enables applications to read item values, navigate through and subscribe to
  change notifications.
 
-Package: libqtmobility1-sensors
+Package: libqtsensors1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Qt Mobility Sensors module
@@ -77,7 +77,7 @@ Description: Qt Mobility Sensors module
  .
  This package contains the Sensors API. It provides access to sensors.
 
-Package: libqtmobility1-serviceframework
+Package: libqtserviceframework1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Qt Mobility Service Framework module
@@ -86,7 +86,7 @@ Description: Qt Mobility Service Framework module
  This package contains a set of APIs to that allows clients to discover and
  instantiate arbitrary services.
 
-Package: libqtmobility1-systeminfo
+Package: libqtsysteminfo1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Qt Mobility System Information module
@@ -95,7 +95,7 @@ Description: Qt Mobility System Information module
  This package contains a set of APIs to discover system related information and
  capabilities.
 
-Package: libqtmobility1-versit
+Package: libqtversit1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Qt Mobility Versit module
@@ -103,7 +103,7 @@ Description: Qt Mobility Versit module
  .
  This package contains an API to manage Versit documents.
 
-Package: libqtmobility1-declarative-publishsubscribe
+Package: libdeclarative-publishsubscribe
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Qt Mobility Publish and Subscribe QML plugin
@@ -111,7 +111,7 @@ Description: Qt Mobility Publish and Subscribe QML plugin
  .
  This package contains the Publish and Subscribe QML plugin for QtDeclarative.
 
-Package: libqtmobility1-declarative-serviceframework
+Package: libdeclarative-serviceframework
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Qt Mobility Service Framework QML plugin
@@ -128,19 +128,19 @@ Description: Qt Mobility examples
  .
  This package contains Qt Mobility examples.
 
-Package: libqtmobility1-dbg
+Package: qtmobility-dbg
 Priority: extra
 Architecture: any
 Section: debug
 Depends: ${shlibs:Depends}, ${misc:Depends},
- libqtmobility1-bearer (= ${binary:Version}),
- libqtmobility1-contacts (= ${binary:Version}),
- libqtmobility1-location (= ${binary:Version}),
- libqtmobility1-publishsubscribe (= ${binary:Version}),
- libqtmobility1-sensors (= ${binary:Version}),
- libqtmobility1-serviceframework (= ${binary:Version}),
- libqtmobility1-systeminfo (= ${binary:Version}),
- libqtmobility1-versit (= ${binary:Version})
+ libqtbearer1 (= ${binary:Version}),
+ libqtcontacts1 (= ${binary:Version}),
+ libqtlocation1 (= ${binary:Version}),
+ libqtpublishsubscribe1 (= ${binary:Version}),
+ libqtsensors1 (= ${binary:Version}),
+ libqtserviceframework1 (= ${binary:Version}),
+ libqtsysteminfo1 (= ${binary:Version}),
+ libqtversit1 (= ${binary:Version})
 Description: APIs for mobile device functionality - debugging symbols
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
