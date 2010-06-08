@@ -1,0 +1,11 @@
+Description: rename binary to lowercase characters
+Author: Fathi Boudra <fabo@debian.org>
+
+--- a/examples/sensors/small_screen_sensors/small_screen_sensors.pro
++++ b/examples/sensors/small_screen_sensors/small_screen_sensors.pro
+@@ -1,4 +1,4 @@
+-TARGET = SmallSensors
++TARGET = smallsensors
+ TEMPLATE = app
+ 
+ include(../../examples.pri)
