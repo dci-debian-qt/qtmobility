@@ -2,3 +2,5 @@
 0002_rename_sysinfo.diff
 01_fix_ftbfs_incorrect_copy2build_output_value.diff
 02_no_rpath.diff
+03_ftbfs_multimedia_plugin.diff
+04_ftbfs_multimedia_examples.diff
