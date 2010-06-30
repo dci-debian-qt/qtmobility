@@ -1,5 +1,7 @@
 0001_rename_smallsensors.diff
 0002_rename_sysinfo.diff
+# merged for 1.0.2
+# 0003_adds_-examplesdir_and_-demosdir_options_to_configure.diff
 01_fix_ftbfs_incorrect_copy2build_output_value.diff
 02_no_rpath.diff
 03_ftbfs_multimedia_plugin.diff

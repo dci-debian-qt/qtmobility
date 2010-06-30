@@ -1,0 +1,389 @@
+From ccb423e04fc349dc8fa72a9537ec8a14627b3ed0 Mon Sep 17 00:00:00 2001
+From: Alex <qt-info@nokia.com>
+Date: Tue, 22 Jun 2010 13:45:47 +1000
+Subject: [PATCH] add support for -examplesdir and -demosdir configure option
+
+Task-number: QTMOBILITY-320
+---
+ configure                                          |   38 +++++++++++++++-
+ configure.bat                                      |   38 +++++++++++++--
+ demos/demos.pri                                    |   10 ++++
+ demos/lightmaps/lightmaps.pro                      |    2 +-
+ demos/player/player.pro                            |    2 +-
+ demos/qmlcontacts/qmlcontacts.pro                  |    2 +-
+ demos/serviceactions/serviceactions.pro            |    2 +-
+ .../small_screen_sensors/small_screen_sensors.pro  |    2 +-
+ demos/weatherinfo/weatherinfo.pro                  |    2 +-
+ examples/examples.pri                              |   47 +------------------
+ features/basic_examples_setup.prf                  |   49 ++++++++++++++++++++
+ 11 files changed, 137 insertions(+), 57 deletions(-)
+ create mode 100644 demos/demos.pri
+ create mode 100644 features/basic_examples_setup.prf
+
+diff --git a/configure b/configure
+index 6c714d6..c56bb89 100755
+--- a/configure
++++ b/configure
+@@ -86,6 +86,8 @@ QT_MOBILITY_INCLUDE=
+ QT_MOBILITY_LIB=
+ QT_MOBILITY_BIN=
+ QT_MOBILITY_PLUGINS=
++QT_MOBILITY_EXAMPLES=
++QT_MOBILITY_DEMOS=
+ BUILD_UNITTESTS=
+ BUILD_EXAMPLES=
+ BUILD_DEMOS=
+@@ -123,6 +125,10 @@ usage()
+     echo "                    (default PREFIX/bin)"
+     echo "-plugindir <dir> .. Plug-ins will be installed to <dir>"
+     echo "                    (default PREFIX/plugins)"
++    echo "-demosdir <dir> ... Demos will be installed to <dir>"
++    echo "                    (default PREFIX/bin)"
++    echo "-examplesdir <dir>  Examples will be installed to <dir>"
++    echo "                    (default PREFIX/bin)"
+     echo "-debug ............ Build with debugging symbols"
+     echo "-release .......... Build without debugging symbols"
+     echo "-silent ........... Reduces build output"
+@@ -143,7 +149,7 @@ usage()
+     echo "                    will automatically be enabled."
+     echo "-maemo6 ........... Build Qt Mobility for Maemo6 (Harmattan)."
+     echo "-maemo5 ........... Build Qt Mobility for Maemo5 (Freemantle)."
+-    echo "-sdk <sdk>..........Build using Apple provided SDK <path/to/sdk>."
++    echo "-sdk <sdk>......... Build using Apple provided SDK <path/to/sdk>."
+     echo "                    example: -sdk /Developer/SDKs/MacOSX10.6.sdk"
+     echo
+     
+@@ -180,6 +186,14 @@ while [ "$#" -gt 0 ]; do
+             QT_MOBILITY_PLUGINS="$2"
+             shift
+             ;;
++        -examplesdir)
++            QT_MOBILITY_EXAMPLES="$2"
++            shift
++            ;;
++        -demosdir)
++            QT_MOBILITY_DEMOS="$2"
++            shift
++            ;;
+         -tests)
+             BUILD_UNITTESTS="yes"
+             ;;
+@@ -367,6 +381,28 @@ else
+ fi
+ echo "QT_MOBILITY_PLUGINS = $QT_MOBILITY_PLUGINS" >> "$CONFIG_IN"
+ 
++#process examples path
++if [ -z "$QT_MOBILITY_EXAMPLES" ]; then
++    QT_MOBILITY_EXAMPLES="$QT_MOBILITY_PREFIX/$BIN_PATH"
++else
++    QT_MOBILITY_EXAMPLES=`absPath $QT_MOBILITY_EXAMPLES $LINUX_TARGET`
++    if [ "$?" -eq "1" ]; then
++        exit 1
++    fi
++fi
++echo "QT_MOBILITY_EXAMPLES = $QT_MOBILITY_EXAMPLES" >> "$CONFIG_IN"
++
++#process demos path
++if [ -z "$QT_MOBILITY_DEMOS" ]; then
++    QT_MOBILITY_DEMOS="$QT_MOBILITY_PREFIX/$BIN_PATH"
++else
++    QT_MOBILITY_DEMOS=`absPath $QT_MOBILITY_DEMOS $LINUX_TARGET`
++    if [ "$?" -eq "1" ]; then
++        exit 1
++    fi
++fi
++echo "QT_MOBILITY_DEMOS = $QT_MOBILITY_DEMOS" >> "$CONFIG_IN"
++
+ 
+ echo "QT_MOBILITY_SOURCE_TREE = $relpath" >> "$QMAKE_CACHE"
+ echo "QT_MOBILITY_BUILD_TREE = $shadowpath" >> "$QMAKE_CACHE"
+diff --git a/configure.bat b/configure.bat
+index d2eee4c..5a544c2 100644
+--- a/configure.bat
++++ b/configure.bat
+@@ -82,6 +82,8 @@ if "%1" == "-libdir"            goto libTag
+ if "%1" == "-bindir"            goto binTag
+ if "%1" == "-headerdir"         goto headerTag
+ if "%1" == "-plugindir"         goto pluginTag
++if "%1" == "-examplesdir"       goto examplesDirTag
++if "%1" == "-demosdir"          goto demosDirTag
+ if "%1" == "-tests"             goto testTag
+ if "%1" == "-examples"          goto exampleTag
+ if "%1" == "-demos"             goto demosTag
+@@ -117,6 +119,10 @@ echo Usage: configure.bat [-prefix (dir)] [headerdir (dir)] [libdir (dir)]
+     echo                     (default PREFIX/bin)
+     echo -plugindir (dir) .. Plug-ins will be installed to dir
+     echo                     (default PREFIX/plugins)
++    echo -examplesdir (dir)  Examples will be installed to dir
++    echo                     (default PREFIX/bin)
++    echo -demosdir (dir) ... Demos will be installed to dir
++    echo                     (default PREFIX/bin)
+     echo -debug ............ Build with debugging symbols
+     echo -release .......... Build without debugging symbols
+     echo -silent ........... Reduces build output
+@@ -194,6 +200,20 @@ shift
+ echo
+ goto cmdline_parsing
+ 
++:examplesDirTag
++shift
++echo QT_MOBILITY_EXAMPLES = %1 >> %PROJECT_CONFIG%
++shift
++echo
++goto cmdline_parsing
++
++:demosDirTag
++shift
++echo QT_MOBILITY_DEMOS =%1 >> %PROJECT_CONFIG%
++shift
++echo
++goto cmdline_parsing
++
+ :unfrozenTag
+ REM Should never be used in release builds
+ REM Some SDK's seem to exclude Q_AUTOTEST_EXPORT symbols if the
+@@ -354,6 +374,8 @@ echo !symbian:isEmpty($$QT_MOBILITY_INCLUDE):QT_MOBILITY_INCLUDE=$$QT_MOBILITY_P
+ echo isEmpty($$QT_MOBILITY_LIB):QT_MOBILITY_LIB=$$QT_MOBILITY_PREFIX/lib >> %PROJECT_CONFIG%
+ echo isEmpty($$QT_MOBILITY_BIN):QT_MOBILITY_BIN=$$QT_MOBILITY_PREFIX/bin >> %PROJECT_CONFIG%
+ echo isEmpty($$QT_MOBILITY_PLUGINS):QT_MOBILITY_PLUGINS=$$QT_MOBILITY_PREFIX/plugins >> %PROJECT_CONFIG%
++echo isEmpty($$QT_MOBILITY_EXAMPLES):QT_MOBILITY_EXAMPLES=$$QT_MOBILITY_PREFIX/bin >> %PROJECT_CONFIG%
++echo isEmpty($$QT_MOBILITY_DEMOS):QT_MOBILITY_DEMOS=$$QT_MOBILITY_PREFIX/bin >> %PROJECT_CONFIG%
+ 
+ echo mobility_modules = %MOBILITY_MODULES%  >> %PROJECT_CONFIG%
+ REM no Sysinfo support on Maemo yet
+@@ -599,9 +621,11 @@ set QT_PATH=
+ set SOURCE_PATH=
+ set MOBILITY_MODULES=
+ set MOBILITY_MODULES_UNPARSED=
+-SET REMAINING=
+-SET FIRST=
+-SET MODULES_TEMP=
++set REMAINING=
++set FIRST=
++set MODULES_TEMP=
++set QT_MOBILITY_EXAMPLES=
++set QT_MOBILITY_DEMOS=
+ exit /b 1
+ 
+ :exitTag
+@@ -616,7 +640,9 @@ set QT_PATH=
+ set SOURCE_PATH=
+ set MOBILITY_MODULES=
+ set MOBILITY_MODULES_UNPARSED=
+-SET REMAINING=
+-SET FIRST=
+-SET MODULES_TEMP=
++set REMAINING=
++set FIRST=
++set MODULES_TEMP=
++set QT_MOBILITY_EXAMPLES=
++set QT_MOBILITY_DEMOS=
+ exit /b 0
+diff --git a/demos/demos.pri b/demos/demos.pri
+new file mode 100644
+index 0000000..211abbb
+--- /dev/null
++++ b/demos/demos.pri
+@@ -0,0 +1,10 @@
++load(basic_examples_setup)
++
++!plugin {
++    target.path=$$QT_MOBILITY_DEMOS
++} else {
++    target.path = $${QT_MOBILITY_PLUGINS}/$${PLUGIN_TYPE}
++}
++INSTALLS += target
++
++
+diff --git a/demos/lightmaps/lightmaps.pro b/demos/lightmaps/lightmaps.pro
+index f8c53e8..01efa85 100644
+--- a/demos/lightmaps/lightmaps.pro
++++ b/demos/lightmaps/lightmaps.pro
+@@ -15,7 +15,7 @@ INCLUDEPATH += ../../src/global \
+                 ../../examples/satellitedialog \
+                 ../../examples/flickrdemo
+ 
+-include(../../examples/examples.pri)
++include(../demos.pri)
+ 
+ CONFIG += mobility
+ MOBILITY = location bearer
+diff --git a/demos/player/player.pro b/demos/player/player.pro
+index 549d13f..03114d0 100644
+--- a/demos/player/player.pro
++++ b/demos/player/player.pro
+@@ -5,7 +5,7 @@ QT += network \
+ 
+ INCLUDEPATH += ../../src/multimedia ../../src/multimedia/audio
+ 
+-include(../../examples/examples.pri)
++include(../demos.pri)
+ CONFIG += mobility
+ MOBILITY = multimedia
+ 
+diff --git a/demos/qmlcontacts/qmlcontacts.pro b/demos/qmlcontacts/qmlcontacts.pro
+index baa40b8..ade0b1f 100644
+--- a/demos/qmlcontacts/qmlcontacts.pro
++++ b/demos/qmlcontacts/qmlcontacts.pro
+@@ -27,4 +27,4 @@ OTHER_FILES += example.qml \
+     ScrollBar.qml
+ symbian::TARGET.CAPABILITY = ReadUserData \
+     WriteUserData
+-include(../../examples/examples.pri)
++include(../demos.pri)
+diff --git a/demos/serviceactions/serviceactions.pro b/demos/serviceactions/serviceactions.pro
+index 9d53fc6..c52e833 100644
+--- a/demos/serviceactions/serviceactions.pro
++++ b/demos/serviceactions/serviceactions.pro
+@@ -3,7 +3,7 @@ TARGET = serviceactions
+ 
+ QT += gui
+ 
+-include(../../examples/examples.pri)
++include(../demos.pri)
+ 
+ CONFIG += mobility
+ MOBILITY = messaging
+diff --git a/demos/small_screen_sensors/small_screen_sensors.pro b/demos/small_screen_sensors/small_screen_sensors.pro
+index f55008d..9dfa2bc 100644
+--- a/demos/small_screen_sensors/small_screen_sensors.pro
++++ b/demos/small_screen_sensors/small_screen_sensors.pro
+@@ -1,7 +1,7 @@
+ TARGET = smallsensors
+ TEMPLATE = app
+ 
+-include(../../examples/examples.pri)
++include(../demos.pri)
+ 
+ QT=core gui
+ CONFIG+=mobility
+diff --git a/demos/weatherinfo/weatherinfo.pro b/demos/weatherinfo/weatherinfo.pro
+index a28e320..05ed3a1 100644
+--- a/demos/weatherinfo/weatherinfo.pro
++++ b/demos/weatherinfo/weatherinfo.pro
+@@ -10,7 +10,7 @@ SOURCES = weatherinfo.cpp \
+ RESOURCES = weatherinfo.qrc
+ QT += network svg
+ 
+-include(../../examples/examples.pri)
++include(../demos.pri)
+ 
+ CONFIG += mobility
+ MOBILITY = location bearer
+diff --git a/examples/examples.pri b/examples/examples.pri
+index 3402160..adced09 100644
+--- a/examples/examples.pri
++++ b/examples/examples.pri
+@@ -1,51 +1,10 @@
+-include(../staticconfig.pri)
+-        
+-#!contains(build_examples, yes):error(Please use the -examples configure switch to enable building of examples)
+-
+-win32:contains(CONFIG_WIN32,build_all):Win32DebugAndRelease=yes
+-mac | contains(Win32DebugAndRelease,yes) {
+-    #due to different debug/release library names we have to comply with 
+-    #whatever Qt does
+-    !contains(QT_CONFIG,debug)|!contains(QT_CONFIG,release) {
+-        CONFIG -= debug_and_release debug release
+-        contains(QT_CONFIG,debug): CONFIG+=debug
+-        contains(QT_CONFIG,release): CONFIG+=release
+-    }
+-}
+-
+-CONFIG(debug, debug|release) {
+-    SUBDIRPART=Debug
+-} else {
+-    SUBDIRPART=Release
+-}
+-
+-OUTPUT_DIR = $$QT_MOBILITY_BUILD_TREE
+-MOC_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/moc
+-RCC_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/rcc
+-UI_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/ui
+-OBJECTS_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET
+-mac:LIBS+= -F$$OUTPUT_DIR/lib
+-LIBS+= -L$$OUTPUT_DIR/lib
+-QMAKE_RPATHDIR+=$$OUTPUT_DIR/lib
+-INCLUDEPATH+= $$QT_MOBILITY_SOURCE_TREE/src/global
++load(basic_examples_setup)
+ 
+ !plugin {
+-    target.path=$$QT_MOBILITY_PREFIX/bin
++    target.path=$$QT_MOBILITY_EXAMPLES
+ } else {
+     target.path = $${QT_MOBILITY_PLUGINS}/$${PLUGIN_TYPE}
+ }
+ INSTALLS += target
+ 
+-maemo6 {
+-    DEFINES+= Q_WS_MAEMO_6
+-    DEFINES+= QTM_EXAMPLES_SMALL_SCREEN
+-    DEFINES+= QTM_EXAMPLES_PREFER_LANDSCAPE
+-}
+-maemo5 {
+-    DEFINES+= Q_WS_MAEMO_5
+-    DEFINES+= QTM_EXAMPLES_SMALL_SCREEN
+-    DEFINES+= QTM_EXAMPLES_PREFER_LANDSCAPE
+-}
+-symbian {
+-    DEFINES+= QTM_EXAMPLES_SMALL_SCREEN
+-}
++
+diff --git a/features/basic_examples_setup.prf b/features/basic_examples_setup.prf
+new file mode 100644
+index 0000000..48cb563
+--- /dev/null
++++ b/features/basic_examples_setup.prf
+@@ -0,0 +1,49 @@
++include(../staticconfig.pri)
++
++win32:contains(CONFIG_WIN32,build_all):Win32DebugAndRelease=yes
++mac | contains(Win32DebugAndRelease,yes) {
++    #due to different debug/release library names we have to comply with 
++    #whatever Qt does
++    !contains(QT_CONFIG,debug)|!contains(QT_CONFIG,release) {
++        CONFIG -= debug_and_release debug release
++        contains(QT_CONFIG,debug): CONFIG+=debug
++        contains(QT_CONFIG,release): CONFIG+=release
++    }
++}
++
++CONFIG(debug, debug|release) {
++    SUBDIRPART=Debug
++} else {
++    SUBDIRPART=Release
++}
++
++OUTPUT_DIR = $$QT_MOBILITY_BUILD_TREE
++MOC_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/moc
++RCC_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/rcc
++UI_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/ui
++OBJECTS_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET
++mac:LIBS+= -F$$OUTPUT_DIR/lib
++LIBS+= -L$$OUTPUT_DIR/lib
++QMAKE_RPATHDIR+=$$QT_MOBILITY_LIB
++INCLUDEPATH+= $$QT_MOBILITY_SOURCE_TREE/src/global
++
++!plugin {
++    target.path=$$QT_MOBILITY_EXAMPLES
++} else {
++    target.path = $${QT_MOBILITY_PLUGINS}/$${PLUGIN_TYPE}
++}
++INSTALLS += target
++
++maemo6 {
++    DEFINES+= Q_WS_MAEMO_6
++    DEFINES+= QTM_EXAMPLES_SMALL_SCREEN
++    DEFINES+= QTM_EXAMPLES_PREFER_LANDSCAPE
++}
++maemo5 {
++    DEFINES+= Q_WS_MAEMO_5
++    DEFINES+= QTM_EXAMPLES_SMALL_SCREEN
++    DEFINES+= QTM_EXAMPLES_PREFER_LANDSCAPE
++}
++symbian {
++    DEFINES+= QTM_EXAMPLES_SMALL_SCREEN
++}
+-- 
+1.6.1
+

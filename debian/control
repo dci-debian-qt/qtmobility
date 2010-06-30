@@ -4,12 +4,9 @@ Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Fathi Boudra <fabo@debian.org>
 Build-Depends: debhelper (>= 7.4.15), pkg-kde-tools (>= 0.6.4),
  libqt4-dev (>= 4:4.7.0~beta1), libqt4-opengl-dev (>= 4:4.7.0~beta1),
- libasound2-dev,
- libbluetooth-dev,
- libpulse-dev,
- libx11-dev,
+ libasound2-dev, libbluetooth-dev, libpulse-dev, libx11-dev,
  network-manager-dev
-Standards-Version: 3.8.4
+Standards-Version: 3.9.0
 Section: libs
 Homepage: http://labs.trolltech.com/page/Projects/QtMobility
 Vcs-Git: git://git.debian.org/pkg-kde/qtmobility.git
@@ -22,7 +19,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
  libqtbearer1 (= ${binary:Version}),
  libqtcontacts1 (= ${binary:Version}),
  libqtlocation1 (= ${binary:Version}),
- libqtmultimediakit1 (= ${binary:Version}),
+# libqtmultimediakit1 (= ${binary:Version}),
  libqtpublishsubscribe1 (= ${binary:Version}),
  libqtsensors1 (= ${binary:Version}),
  libqtserviceframework1 (= ${binary:Version}),
@@ -60,14 +57,14 @@ Description: Qt Mobility Location module
  This package contains the Location API. It provides a library for distributing
  and receiving location data using arbitrary data sources.
 
-Package: libqtmultimediakit1
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Qt Mobility MultimediaKit module
- Qt Mobility delivers a set of new APIs for mobile device functionality.
- .
- This package contains a set of APIs to play and record media, and manage a
- collection of media content.
+#Package: libqtmultimediakit1
+#Architecture: any
+#Depends: ${shlibs:Depends}, ${misc:Depends}
+#Description: Qt Mobility MultimediaKit module
+# Qt Mobility delivers a set of new APIs for mobile device functionality.
+# .
+# This package contains a set of APIs to play and record media, and manage a
+# collection of media content.
 
 Package: libqtpublishsubscribe1
 Architecture: any
@@ -113,13 +110,13 @@ Description: Qt Mobility Versit module
  .
  This package contains an API to manage Versit documents.
 
-Package: libdeclarative-multimedia
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Qt Mobility Multimedia QML plugin
- Qt Mobility delivers a set of new APIs for mobile device functionality.
- .
- This package contains the Multimedia QML plugin for QtDeclarative.
+#Package: libdeclarative-multimedia
+#Architecture: any
+#Depends: ${shlibs:Depends}, ${misc:Depends}
+#Description: Qt Mobility Multimedia QML plugin
+# Qt Mobility delivers a set of new APIs for mobile device functionality.
+# .
+# This package contains the Multimedia QML plugin for QtDeclarative.
 
 Package: libdeclarative-publishsubscribe
 Architecture: any
@@ -154,7 +151,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
  libqtbearer1 (= ${binary:Version}),
  libqtcontacts1 (= ${binary:Version}),
  libqtlocation1 (= ${binary:Version}),
- libqtmultimediakit1 (= ${binary:Version}),
+# libqtmultimediakit1 (= ${binary:Version}),
  libqtpublishsubscribe1 (= ${binary:Version}),
  libqtsensors1 (= ${binary:Version}),
  libqtserviceframework1 (= ${binary:Version}),

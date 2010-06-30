@@ -13,7 +13,8 @@ override_dh_auto_configure:
 	    -libdir "/usr/lib" \
 	    -bindir "/usr/bin" \
 	    -plugindir "/usr/lib/qt4/plugins" \
-	    -examples
+	    -examples \
+	    -modules "bearer location contacts publishsubscribe versit systeminfo serviceframework sensors"
 
 override_dh_auto_clean:
 	dh_auto_clean
