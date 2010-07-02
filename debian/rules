@@ -3,6 +3,10 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+# QMF environment variables should be set
+export QMF_INCLUDEDIR := /usr/include/qtopiamail
+export QMF_LIBDIR := /usr/lib
+
 %:
 	dh $@ --parallel --list-missing --dbg-package=qtmobility-dbg --with pkgkde_symbolshelper
 
@@ -14,7 +18,7 @@ override_dh_auto_configure:
 	    -bindir "/usr/bin" \
 	    -plugindir "/usr/lib/qt4/plugins" \
 	    -examples \
-	    -modules "bearer location contacts publishsubscribe versit systeminfo serviceframework sensors"
+	    -modules "bearer location contacts publishsubscribe versit messaging systeminfo serviceframework sensors"
 
 override_dh_auto_clean:
 	dh_auto_clean
