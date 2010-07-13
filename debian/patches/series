@@ -6,3 +6,4 @@
 02_no_rpath.diff
 03_ftbfs_multimedia_plugin.diff
 04_ftbfs_multimedia_examples.diff
+05_fix_translations_install_path.diff

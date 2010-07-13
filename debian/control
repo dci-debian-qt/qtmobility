@@ -4,8 +4,8 @@ Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Fathi Boudra <fabo@debian.org>
 Build-Depends: debhelper (>= 7.4.15), pkg-kde-tools (>= 0.6.4),
  libqt4-dev (>= 4:4.7.0~beta2), libqt4-opengl-dev (>= 4:4.7.0~beta2),
- libasound2-dev, libbluetooth-dev, libpulse-dev, libx11-dev,
- network-manager-dev, qmf-dev
+ libqtwebkit-dev (>= 1:2.0~week27), libasound2-dev, libbluetooth-dev,
+ libpulse-dev, libx11-dev, network-manager-dev, qmf-dev
 Standards-Version: 3.9.0
 Section: libs
 Homepage: http://labs.trolltech.com/page/Projects/QtMobility
@@ -35,6 +35,7 @@ Description: APIs for mobile device functionality - development files
 Package: libqtbearer1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
 Description: Qt Mobility Bearer Management module
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
@@ -43,6 +44,7 @@ Description: Qt Mobility Bearer Management module
 Package: libqtcontacts1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
 Description: Qt Mobility Contacts module
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
@@ -52,6 +54,7 @@ Description: Qt Mobility Contacts module
 Package: libqtlocation1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
 Description: Qt Mobility Location module
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
@@ -61,6 +64,7 @@ Description: Qt Mobility Location module
 Package: libqtmessaging1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
 Description: Qt Mobility Messaging module
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
@@ -70,6 +74,7 @@ Description: Qt Mobility Messaging module
 Package: libqtmultimediakit1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
 Description: Qt Mobility MultimediaKit module
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
@@ -79,6 +84,7 @@ Description: Qt Mobility MultimediaKit module
 Package: libqtpublishsubscribe1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
 Description: Qt Mobility Publish and Subscribe module
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
@@ -89,6 +95,7 @@ Description: Qt Mobility Publish and Subscribe module
 Package: libqtsensors1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
 Description: Qt Mobility Sensors module
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
@@ -97,6 +104,7 @@ Description: Qt Mobility Sensors module
 Package: libqtserviceframework1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
 Description: Qt Mobility Service Framework module
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
@@ -106,6 +114,7 @@ Description: Qt Mobility Service Framework module
 Package: libqtsysteminfo1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
 Description: Qt Mobility System Information module
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
@@ -115,6 +124,7 @@ Description: Qt Mobility System Information module
 Package: libqtversit1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
 Description: Qt Mobility Versit module
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
@@ -152,6 +162,14 @@ Description: Qt Mobility examples
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
  This package contains Qt Mobility examples.
+
+Package: qtmobility-l10n
+Architecture: all
+Section: localizationn
+Description: APIs for mobile device functionality - localization files
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains Qt Mobility translations.
 
 Package: qtmobility-dbg
 Priority: extra
