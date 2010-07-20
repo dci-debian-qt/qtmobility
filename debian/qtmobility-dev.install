@@ -4,12 +4,6 @@ usr/bin/servicedbgen
 usr/bin/servicefw
 usr/bin/servicexmlgen
 usr/bin/vsexplorer
-usr/include/QtBearer/QNetworkConfiguration
-usr/include/QtBearer/QNetworkConfigurationManager
-usr/include/QtBearer/QNetworkSession
-usr/include/QtBearer/qnetworkconfigmanager.h
-usr/include/QtBearer/qnetworkconfiguration.h
-usr/include/QtBearer/qnetworksession.h
 usr/include/QtContacts/QContact
 usr/include/QtContacts/QContactAbstractRequest
 usr/include/QtContacts/QContactAddress
@@ -379,8 +373,6 @@ usr/include/QtVersit/qversitreader.h
 usr/include/QtVersit/qversitresourcehandler.h
 usr/include/QtVersit/qversitwriter.h
 usr/include/qmobilityglobal.h
-usr/lib/libQtBearer.prl
-usr/lib/libQtBearer.so
 usr/lib/libQtContacts.prl
 usr/lib/libQtContacts.so
 usr/lib/libQtLocation.prl

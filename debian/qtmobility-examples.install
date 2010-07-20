@@ -5,14 +5,10 @@ usr/bin/audioinput
 usr/bin/audiooutput
 usr/bin/audiorecorder
 usr/bin/battery-publisher
-usr/bin/bearercloud
-usr/bin/bearermonitor
 usr/bin/cubehouse
 #usr/bin/fetchgooglemaps
-usr/bin/flickrdemo
 usr/bin/grueapp
 usr/bin/keepintouch
-usr/bin/lightmaps_with_location
 usr/bin/logfilepositionsource
 usr/bin/metadata
 usr/bin/orientation
@@ -41,7 +37,6 @@ usr/bin/slideshow
 usr/bin/smallsensors
 usr/bin/videographicsitem
 usr/bin/videowidget
-usr/bin/weatherinfo_with_location
 usr/bin/writemessage
 usr/lib/qt4/plugins/sensors/libqtsensors_grueplugin.so
 usr/lib/qt4/plugins/serviceframework/libserviceframework_bluetoothtransferplugin.so

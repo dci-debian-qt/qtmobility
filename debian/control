@@ -17,7 +17,6 @@ Package: qtmobility-dev
 Section: libdevel
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
- libqtbearer1 (= ${binary:Version}),
  libqtcontacts1 (= ${binary:Version}),
  libqtlocation1 (= ${binary:Version}),
  libqtmessaging1 (= ${binary:Version}),
@@ -32,15 +31,6 @@ Description: APIs for mobile device functionality - development files
  .
  This package contains the development files needed to build Qt applications
  using Qt Mobility libraries.
-
-Package: libqtbearer1
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: qtmobility-l10n
-Description: Qt Mobility Bearer Management module
- Qt Mobility delivers a set of new APIs for mobile device functionality.
- .
- This package contains an API to control the system's connectivity state.
 
 Package: libqtcontacts1
 Architecture: any
@@ -177,7 +167,6 @@ Priority: extra
 Architecture: any
 Section: debug
 Depends: ${shlibs:Depends}, ${misc:Depends},
- libqtbearer1 (= ${binary:Version}),
  libqtcontacts1 (= ${binary:Version}),
  libqtlocation1 (= ${binary:Version}),
  libqtmessaging1 (= ${binary:Version}),
