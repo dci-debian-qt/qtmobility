@@ -22,4 +22,15 @@ override_dh_auto_configure:
 
 override_dh_auto_clean:
 	dh_auto_clean
-	rm -f tools/tools.pro.user
+	rm -f \
+	    .qmake.cache \
+	    config.tests/networkmanager/networkmanager \
+	    config.tests/qmf/qmf \
+	    tools/tools.pro.user
+	find \( -false \
+	    -o -type f -name Makefile \
+	    -o -type f -name \*.o \
+	    -o -type f -name config.\* \
+	    -o -type f -name mobility\*.prf \
+	\) -delete
+	rm -rf include libs libs
