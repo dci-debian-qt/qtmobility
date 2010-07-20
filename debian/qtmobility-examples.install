@@ -8,7 +8,7 @@ usr/bin/battery-publisher
 usr/bin/bearercloud
 usr/bin/bearermonitor
 usr/bin/cubehouse
-usr/bin/fetchgooglemaps
+#usr/bin/fetchgooglemaps
 usr/bin/flickrdemo
 usr/bin/grueapp
 usr/bin/keepintouch

@@ -3,7 +3,6 @@ qtmobility (1.0.1-2) experimental; urgency=low
   * Update debian/control:
     - enable Qt Mobility MultimediaKit module.
     - build depends on Qt 4.7.0~beta2.
-    - add libqtwebkit-dev build dependency for fetchgooglemaps example.
   * Add qtmobility-l10n package.
 
  -- Fathi Boudra <fabo@debian.org>  Tue, 13 Jul 2010 09:40:30 +0300

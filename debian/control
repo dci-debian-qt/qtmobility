@@ -4,7 +4,8 @@ Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Fathi Boudra <fabo@debian.org>
 Build-Depends: debhelper (>= 7.4.15), pkg-kde-tools (>= 0.6.4),
  libqt4-dev (>= 4:4.7.0~beta2), libqt4-opengl-dev (>= 4:4.7.0~beta2),
- libqtwebkit-dev (>= 1:2.0~week27), libasound2-dev, libbluetooth-dev,
+# libqtwebkit-dev (>= 2.0~week27),
+ libasound2-dev, libbluetooth-dev,
  libpulse-dev, libx11-dev, network-manager-dev, qmf-dev
 Standards-Version: 3.9.0
 Section: libs
@@ -165,7 +166,7 @@ Description: Qt Mobility examples
 
 Package: qtmobility-l10n
 Architecture: all
-Section: localizationn
+Section: localization
 Description: APIs for mobile device functionality - localization files
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
