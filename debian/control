@@ -85,7 +85,7 @@ Description: Qt Mobility Publish and Subscribe module
 
 Package: libqtsensors1
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-sql-sqlite
 Suggests: qtmobility-l10n
 Description: Qt Mobility Sensors module
  Qt Mobility delivers a set of new APIs for mobile device functionality.

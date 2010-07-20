@@ -4,6 +4,7 @@ qtmobility (1.0.1-3) UNRELEASED; urgency=low
     Network Bearer management module after Qt 4.7.0 beta 2 release.
   * Update debian/control:
     - add libgstreamer-plugins-base0.10-dev build dependency.
+    - add libqt4-sql-sqlite dependency to libqtsensors1 package.
 
  -- Fathi Boudra <fabo@debian.org>  Tue, 20 Jul 2010 17:35:13 +0300
 
