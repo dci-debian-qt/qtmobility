@@ -6,7 +6,6 @@ usr/bin/audiooutput
 usr/bin/audiorecorder
 usr/bin/battery-publisher
 usr/bin/cubehouse
-#usr/bin/fetchgooglemaps
 usr/bin/grueapp
 usr/bin/keepintouch
 usr/bin/logfilepositionsource

@@ -3,11 +3,13 @@ qtmobility (1.0.1-3) UNRELEASED; urgency=low
   * Disable Qt Mobility Bearer management module. It is merged in Qt as
     Qt Network Bearer management module after Qt 4.7.0 beta 2 release.
   * Update debian/control:
-    - add libgstreamer-plugins-base0.10-dev build dependency.
+    - add libgstreamer-plugins-base0.10-dev, libxext-dev and libxv-dev build
+      dependencies.
     - add libqt4-sql-sqlite dependency to libqtsensors1 package.
     - add hal dependency to libqtserviceframework1 package.
   * Update debian/rules:
     - remove more leftover files and directories.
+  * Update debian/*.install files.
 
  -- Fathi Boudra <fabo@debian.org>  Tue, 20 Jul 2010 17:35:13 +0300
 
