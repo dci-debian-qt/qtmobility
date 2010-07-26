@@ -10,8 +10,8 @@ Build-Depends: debhelper (>= 7.4.15), pkg-kde-tools (>= 0.6.4),
 Standards-Version: 3.9.0
 Section: libs
 Homepage: http://labs.trolltech.com/page/Projects/QtMobility
-Vcs-Git: git://git.debian.org/pkg-kde/qtmobility.git
-Vcs-Browser: http://git.debian.org/?p=pkg-kde/qtmobility.git;a=summary
+Vcs-Git: git://git.debian.org/pkg-kde/qt/qtmobility.git
+Vcs-Browser: http://git.debian.org/?p=pkg-kde/qt/qtmobility.git;a=summary
 
 Package: qtmobility-dev
 Section: libdevel
