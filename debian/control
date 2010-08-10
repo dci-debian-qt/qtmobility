@@ -121,6 +121,14 @@ Description: Qt Mobility Versit module
  .
  This package contains an API to manage Versit documents.
 
+Package: libdeclarative-contacts
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt Mobility Contacts QML plugin
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains the Contacts QML plugin for QtDeclarative.
+
 Package: libdeclarative-multimedia
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
@@ -136,6 +144,14 @@ Description: Qt Mobility Publish and Subscribe QML plugin
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
  This package contains the Publish and Subscribe QML plugin for QtDeclarative.
+
+Package: libdeclarative-sensors
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt Mobility Sensors QML plugin
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains the Sensors QML plugin for QtDeclarative.
 
 Package: libdeclarative-serviceframework
 Architecture: any

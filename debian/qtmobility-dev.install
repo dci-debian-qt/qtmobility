@@ -277,6 +277,7 @@ usr/include/QtMultimediaKit/qmetadatareadercontrol.h
 usr/include/QtMultimediaKit/qmetadatawritercontrol.h
 usr/include/QtMultimediaKit/qradiotuner.h
 usr/include/QtMultimediaKit/qradiotunercontrol.h
+usr/include/QtMultimediaKit/qsoundeffect.h
 usr/include/QtMultimediaKit/qtmedianamespace.h
 usr/include/QtMultimediaKit/qvideodevicecontrol.h
 usr/include/QtMultimediaKit/qvideoencodercontrol.h

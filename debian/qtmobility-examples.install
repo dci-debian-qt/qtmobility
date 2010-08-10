@@ -13,7 +13,6 @@ usr/bin/metadata
 usr/bin/orientation
 usr/bin/player
 usr/bin/publish-subscribe
-usr/bin/qmlcontacts
 usr/bin/qsysinfo
 usr/bin/querymessages
 usr/bin/radio
