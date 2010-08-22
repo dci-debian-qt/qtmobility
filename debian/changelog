@@ -10,12 +10,17 @@ qtmobility (1.0.2-1) UNRELEASED; urgency=low
     - 03_ftbfs_multimedia_plugin.diff
     - 0001_rename_smallsensors.diff
     - 0002_rename_sysinfo.diff
+  * Add patches:
+    - 0001_do_not_use_imageprovider.h_in_declarative_plugin.patch
+      It fixes ftbfs against Qt 4.7.0 rc1.
   * Update debian/control:
     - add libgstreamer-plugins-base0.10-dev, libxext-dev and libxv-dev build
       dependencies.
     - add libqt4-sql-sqlite dependency to libqtsensors1 package.
     - add hal dependency to libqtserviceframework1 package.
     - add libdeclarative-contacts and libdeclarative-sensors packages.
+    - bump Qt build dependencies to 4:4.7.0~rc1
+    - bump Standards-Version to 3.9.1 (no changes needed).
   * Update debian/rules:
     - remove more leftover files and directories.
   * Update debian/*.install files.
