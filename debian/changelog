@@ -1,7 +1,11 @@
 qtmobility (1.0.2-2) UNRELEASED; urgency=low
 
+  [ Pino Toscano ]
+  * Update debian/control:
+    - limit the libasound2-dev, libbluetooth-dev and network-manager-dev build
+      dependencies to linux-any (as they are Linux-specific).
 
- -- Fathi Boudra <fabo@debian.org>  Mon, 06 Sep 2010 09:55:05 +0200
+ -- Fathi Boudra <fabo@debian.org>  Mon, 06 Sep 2010 09:57:43 +0200
 
 qtmobility (1.0.2-1) experimental; urgency=low
 
