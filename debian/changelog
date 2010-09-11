@@ -1,6 +1,12 @@
 qtmobility (1.0.2-2) experimental; urgency=low
 
+  [ Fathi Boudra ]
   * Split servicefw in his own package.
+
+  [ Pino Toscano ]
+  * Update debian/control:
+    - limit the libasound2-dev, libbluetooth-dev and network-manager-dev build
+      dependencies to linux-any (as they are Linux-specific).
 
  -- Fathi Boudra <fabo@debian.org>  Tue, 07 Sep 2010 12:37:57 +0300
 
