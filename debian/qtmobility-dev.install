@@ -1,7 +1,6 @@
 usr/bin/icheck
 usr/bin/qcrmlgen
 usr/bin/servicedbgen
-usr/bin/servicefw
 usr/bin/servicexmlgen
 usr/bin/vsexplorer
 usr/include/QtContacts/QContact
