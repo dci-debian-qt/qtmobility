@@ -1,6 +1,6 @@
-0001_do_not_use_imageprovider.h_in_declarative_plugin.patch
-# merged for 1.0.2
-# 0003_adds_-examplesdir_and_-demosdir_options_to_configure.diff
-02_no_rpath.diff
-04_ftbfs_multimedia_examples.diff
-05_fix_translations_install_path.diff
+no_rpath.patch
+ftbfs_multimedia_examples.patch
+fix_translations_install_path.patch
+enable_pkgconfig_support.patch
+use_isabspath.patch
+qmf_2010w36_support.patch

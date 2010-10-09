@@ -1,0 +1,16 @@
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/demos/qmlcontacts/contents/pics/button-pressed.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/demos/qmlcontacts/contents/pics/button.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/battery-subscriber/content/bubble.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-music-browser/MusicBrowserCore/images/albums.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-music-browser/MusicBrowserCore/images/arrow.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-music-browser/MusicBrowserCore/images/artists.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-music-browser/MusicBrowserCore/images/genres.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-music-browser/MusicBrowserCore/images/nocover.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-music-browser/MusicBrowserCore/images/songs.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-sfw-dialer/content/call.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-sfw-dialer/content/hangup.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-sfw-notes/content/icons/addIcon.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-sfw-notes/content/icons/deleteIcon.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-sfw-notes/content/icons/nextIcon.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-sfw-notes/content/icons/prevIcon.png
+qtmobility-examples: image-file-in-usr-lib usr/lib/qtmobility/examples/declarative-sfw-notes/content/icons/searchIcon.png

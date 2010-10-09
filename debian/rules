@@ -4,7 +4,7 @@
 #export DH_VERBOSE=1
 
 # QMF environment variables should be set
-export QMF_INCLUDEDIR := /usr/include/qtopiamail
+export QMF_INCLUDEDIR := /usr/include/qmfclient
 export QMF_LIBDIR := /usr/lib
 
 %:
@@ -17,8 +17,20 @@ override_dh_auto_configure:
 	    -libdir "/usr/lib" \
 	    -bindir "/usr/bin" \
 	    -plugindir "/usr/lib/qt4/plugins" \
+	    -demosdir "/usr/lib/qtmobility/demos" \
+	    -examplesdir "/usr/lib/qtmobility/examples" \
 	    -examples \
-	    -modules "location contacts multimedia publishsubscribe versit messaging systeminfo serviceframework sensors"
+	    -demos \
+	    -modules "location contacts multimedia publishsubscribe versit messaging systeminfo serviceframework sensors gallery organizer feedback"
+
+override_dh_auto_install:
+	dh_auto_install
+	# Fix wrong path in pkgconfig files
+	find $(CURDIR)/debian/tmp/usr/lib/pkgconfig -type f -name '*.pc' \
+		-exec perl -pi -e "s, -L$(CURDIR)/?\S+,,g" {} \;
+	# Fix wrong path in prl files
+	find $(CURDIR)/debian/tmp/usr/lib -type f -name '*.prl' \
+		-exec sed -i -e "/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/" {} \;
 
 override_dh_auto_clean:
 	dh_auto_clean
@@ -33,4 +45,4 @@ override_dh_auto_clean:
 	    -o -type f -name config.\* \
 	    -o -type f -name mobility\*.prf \
 	\) -delete
-	rm -rf include libs libs
+	rm -rf include libs

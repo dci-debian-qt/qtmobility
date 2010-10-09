@@ -1,9 +1,8 @@
 Description: Remove rpath
 Author: Fathi Boudra <fabo@debian.org>
-
 --- a/common.pri
 +++ b/common.pri
-@@ -106,7 +106,6 @@ contains(build_unit_tests, yes):DEFINES+
+@@ -114,7 +114,6 @@ contains(build_unit_tests, yes) {
      MOC_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/moc
      RCC_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/rcc
      UI_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/ui
@@ -11,7 +10,7 @@ Author: Fathi Boudra <fabo@debian.org>
  } else {
      # Unit test code (no plugins! test plugins are just normal plugins installed elsewhere)
      QT *= testlib
-@@ -117,7 +116,6 @@ contains(build_unit_tests, yes):DEFINES+
+@@ -125,7 +124,6 @@ contains(build_unit_tests, yes) {
      MOC_DIR = $$OUTPUT_DIR/build/tests/$$SUBDIRPART/$$TARGET/moc
      RCC_DIR = $$OUTPUT_DIR/build/tests/$$SUBDIRPART/$$TARGET/rcc
      UI_DIR = $$OUTPUT_DIR/build/tests/$$SUBDIRPART/$$TARGET/ui
@@ -63,16 +62,6 @@ Author: Fathi Boudra <fabo@debian.org>
  HEADERS = \
      audiorecorder.h
    
---- a/examples/examples.pri
-+++ b/examples/examples.pri
-@@ -26,7 +26,6 @@ UI_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART
- OBJECTS_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET
- mac:LIBS+= -F$$OUTPUT_DIR/lib
- LIBS+= -L$$OUTPUT_DIR/lib
--QMAKE_RPATHDIR+=$$OUTPUT_DIR/lib
- INCLUDEPATH+= $$QT_MOBILITY_SOURCE_TREE/src/global
- 
- !plugin {
 --- a/examples/radio/radio.pro
 +++ b/examples/radio/radio.pro
 @@ -7,8 +7,6 @@ include(../examples.pri)
@@ -106,13 +95,23 @@ Author: Fathi Boudra <fabo@debian.org>
  HEADERS = \
      videoplayer.h \
      videowidget.h \
+--- a/features/basic_examples_setup.pri
++++ b/features/basic_examples_setup.pri
+@@ -24,7 +24,6 @@ UI_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART
+ OBJECTS_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET
+ mac:LIBS+= -F$$OUTPUT_DIR/lib
+ LIBS+= -L$$OUTPUT_DIR/lib
+-QMAKE_RPATHDIR+=$$QT_MOBILITY_LIB
+ INCLUDEPATH+= $$QT_MOBILITY_SOURCE_TREE/src/global
+ 
+ maemo6 {
 --- a/features/mobility.prf.template
 +++ b/features/mobility.prf.template
-@@ -13,7 +13,6 @@
- }
+@@ -12,7 +12,6 @@
  mac: LIBS += -F$${MOBILITY_LIB}
+ 
  LIBS+= -L$${MOBILITY_LIB}
 -QMAKE_RPATHDIR+=$${MOBILITY_LIB}
  
- contains(MOBILITY, bearer) {
-     DEFINES += QT_MOBILITY_BEARER
+ # versit depends on contacts
+ contains(MOBILITY, versit) {

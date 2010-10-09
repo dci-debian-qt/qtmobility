@@ -1,0 +1,79 @@
+Description: Enable pkconfig support and fix install path
+Author: Fathi Boudra <fabo@debian.org>
+--- a/src/contacts/contacts.pro
++++ b/src/contacts/contacts.pro
+@@ -90,9 +90,16 @@ maemo6 {
+     isEmpty(CONTACTS_DEFAULT_ENGINE): CONTACTS_DEFAULT_ENGINE=tracker
+ }
+ 
+-maemo5|maemo6 {
++CONFIG += app
++include(../../features/deploy.pri)
++
++maemo5|maemo6|linux-* {
+     CONFIG += create_pc create_prl
+     QMAKE_PKGCONFIG_DESCRIPTION = Qt Mobility - Contacts API
++    QMAKE_PKGCONFIG_DESTDIR = pkgconfig
++    QMAKE_PKGCONFIG_LIBDIR = $$target.path
++    QMAKE_PKGCONFIG_INCDIR = $$headers.path
++    QMAKE_PKGCONFIG_CFLAGS = -I$${QT_MOBILITY_INCLUDE}/QtMobility
+     pkgconfig.path = $$QT_MOBILITY_LIB/pkgconfig
+     pkgconfig.files = QtContacts.pc
+ 
+@@ -129,6 +136,3 @@ simulator {
+ }
+ 
+ !isEmpty(CONTACTS_DEFAULT_ENGINE): DEFINES += Q_CONTACTS_DEFAULT_ENGINE=$$CONTACTS_DEFAULT_ENGINE
+-
+-CONFIG += app
+-include(../../features/deploy.pri)
+--- a/src/versit/versit.pro
++++ b/src/versit/versit.pro
+@@ -80,14 +80,18 @@ symbian {
+     DEPLOYMENT += VERSIT_DEPLOYMENT
+ }
+ 
+-maemo5|maemo6 {
++CONFIG += app
++include(../../features/deploy.pri)
++
++maemo5|maemo6|linux-* {
+     CONFIG += create_pc create_prl
+     QMAKE_PKGCONFIG_DESCRIPTION = Qt Mobility - Versit API
++    QMAKE_PKGCONFIG_DESTDIR = pkgconfig
++    QMAKE_PKGCONFIG_LIBDIR = $$target.path
++    QMAKE_PKGCONFIG_INCDIR = $$headers.path
++    QMAKE_PKGCONFIG_CFLAGS = -I$${QT_MOBILITY_INCLUDE}/QtMobility
+     pkgconfig.path = $$QT_MOBILITY_LIB/pkgconfig
+     pkgconfig.files = QtVersit.pc
+ 
+     INSTALLS += pkgconfig
+ }
+-
+-CONFIG += app
+-include(../../features/deploy.pri)
+--- a/src/versitorganizer/versitorganizer.pro
++++ b/src/versitorganizer/versitorganizer.pro
+@@ -59,14 +59,18 @@ symbian {
+     DEPLOYMENT += VERSIT_ORGANIZER_DEPLOYMENT
+ }
+ 
+-maemo5|maemo6 {
++CONFIG += app
++include(../../features/deploy.pri)
++
++maemo5|maemo6|linux-* {
+     CONFIG += create_pc create_prl
+     QMAKE_PKGCONFIG_DESCRIPTION = Qt Mobility - Versit API for Organizer
++    QMAKE_PKGCONFIG_DESTDIR = pkgconfig
++    QMAKE_PKGCONFIG_LIBDIR = $$target.path
++    QMAKE_PKGCONFIG_INCDIR = $$headers.path
++    QMAKE_PKGCONFIG_CFLAGS = -I$${QT_MOBILITY_INCLUDE}/QtMobility
+     pkgconfig.path = $$QT_MOBILITY_LIB/pkgconfig
+     pkgconfig.files = QtVersitOrganizer.pc
+ 
+     INSTALLS += pkgconfig
+ }
+-
+-CONFIG += app
+-include(../../features/deploy.pri)

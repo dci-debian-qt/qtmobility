@@ -4,8 +4,8 @@ Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Fathi Boudra <fabo@debian.org>
 Build-Depends: debhelper (>= 7.4.15), pkg-kde-tools (>= 0.6.4),
  libqt4-dev (>= 4:4.7.0~rc1), libqt4-opengl-dev (>= 4:4.7.0~rc1),
- libqtwebkit-dev (>= 2.0~week27), libgstreamer-plugins-base0.10-dev,
- libpulse-dev, libx11-dev, libxext-dev, libxv-dev, qmf-dev (>= 1.0~2010w35),
+ libgstreamer-plugins-base0.10-dev, libpulse-dev, libx11-dev, libxext-dev,
+ libxrandr-dev, libxv-dev, qmf-dev (>= 1.0~2010w39),
  libasound2-dev [!kfreebsd-amd64 !kfreebsd-i386 !hurd-i386],
  libbluetooth-dev [!kfreebsd-amd64 !kfreebsd-i386 !hurd-i386],
  network-manager-dev [!kfreebsd-amd64 !kfreebsd-i386 !hurd-i386]
@@ -20,14 +20,18 @@ Section: libdevel
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
  libqtcontacts1 (= ${binary:Version}),
+ libqtfeedback1 (= ${binary:Version}),
+ libqtgallery1 (= ${binary:Version}),
  libqtlocation1 (= ${binary:Version}),
  libqtmessaging1 (= ${binary:Version}),
  libqtmultimediakit1 (= ${binary:Version}),
+ libqtorganizer1 (= ${binary:Version}),
  libqtpublishsubscribe1 (= ${binary:Version}),
  libqtsensors1 (= ${binary:Version}),
  libqtserviceframework1 (= ${binary:Version}),
  libqtsysteminfo1 (= ${binary:Version}),
  libqtversit1 (= ${binary:Version}),
+ libqtversitorganizer1 (= ${binary:Version}),
  servicefw
 Description: APIs for mobile device functionality - development files
  Qt Mobility delivers a set of new APIs for mobile device functionality.
@@ -44,6 +48,26 @@ Description: Qt Mobility Contacts module
  .
  This package contains an API enabling clients to request contact data from
  local or remote backends.
+
+Package: libqtfeedback1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
+Description: Qt Mobility Feedback module
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains the Feedback API. It enables a client to control
+ the vibration of the device or the piezo feedback from the screen.
+
+Package: libqtgallery1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
+Description: Qt Mobility Document Gallery module
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains an API for accessing collections of documents and media
+ and their meta-data.
 
 Package: libqtlocation1
 Architecture: any
@@ -74,6 +98,18 @@ Description: Qt Mobility MultimediaKit module
  .
  This package contains a set of APIs to play and record media, and manage a
  collection of media content.
+
+Package: libqtorganizer1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
+Description: Qt Mobility Organizer module
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains an API for management of calendar, scheduling and
+ personal data from local or remote backends. It includes the ability to create,
+ edit, list, delete and lookup organizer information whether it is stored
+ locally or remotely.
 
 Package: libqtpublishsubscribe1
 Architecture: any
@@ -119,10 +155,21 @@ Package: libqtversit1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Suggests: qtmobility-l10n
-Description: Qt Mobility Versit module
+Description: Qt Mobility Versit (vCard) module
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
- This package contains an API to manage Versit documents.
+ This package contains an API to manage Versit documents, such as vCards.
+
+Package: libqtversitorganizer1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
+Description: Qt Mobility Versit (Organizer) module
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains an API to manage Versit documents, such as iCalendar
+ documents. It interfaces the Organizer API and uses the same framework as for
+ vCards.
 
 Package: libdeclarative-contacts
 Architecture: any
@@ -131,6 +178,30 @@ Description: Qt Mobility Contacts QML plugin
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
  This package contains the Contacts QML plugin for QtDeclarative.
+
+Package: libdeclarative-gallery
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt Mobility Document Gallery QML plugin
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains the Document Gallery QML plugin for QtDeclarative.
+
+Package: libdeclarative-location
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt Mobility Location QML plugin
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains the Location QML plugin for QtDeclarative.
+
+Package: libdeclarative-messaging
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt Mobility Messaging QML plugin
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains the Messaging QML plugin for QtDeclarative.
 
 Package: libdeclarative-multimedia
 Architecture: any
@@ -164,6 +235,14 @@ Description: Qt Mobility Service Framework QML plugin
  .
  This package contains the Service Framework QML plugin for QtDeclarative.
 
+Package: libdeclarative-systeminfo
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt Mobility System Information QML plugin
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains the System Information QML plugin for QtDeclarative.
+
 Package: servicefw
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
@@ -186,6 +265,7 @@ Description: Qt Mobility examples
 Package: qtmobility-l10n
 Architecture: all
 Section: localization
+Depends: ${misc:Depends}
 Description: APIs for mobile device functionality - localization files
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
@@ -197,14 +277,19 @@ Architecture: any
 Section: debug
 Depends: ${shlibs:Depends}, ${misc:Depends},
  libqtcontacts1 (= ${binary:Version}),
+ libqtfeedback1 (= ${binary:Version}),
+ libqtgallery1 (= ${binary:Version}),
  libqtlocation1 (= ${binary:Version}),
  libqtmessaging1 (= ${binary:Version}),
  libqtmultimediakit1 (= ${binary:Version}),
+ libqtorganizer1 (= ${binary:Version}),
  libqtpublishsubscribe1 (= ${binary:Version}),
  libqtsensors1 (= ${binary:Version}),
  libqtserviceframework1 (= ${binary:Version}),
  libqtsysteminfo1 (= ${binary:Version}),
- libqtversit1 (= ${binary:Version})
+ libqtversit1 (= ${binary:Version}),
+ libqtversitorganizer1 (= ${binary:Version}),
+ servicefw
 Description: APIs for mobile device functionality - debugging symbols
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
