@@ -11,6 +11,10 @@ qtmobility (1.2.0~beta0+git3174-1) unstable; urgency=low
   * Update debian/control:
     - add libblkid-dev and libudev-dev build dependencies.
     - move hal dependency to suggests.
+    - add libdeclarative-connectivity, libdeclarative-feedback,
+      libdeclarative-organizer and libqtconnectivity1 packages.
+  * Update debian/rules:
+    - add connectivity to the list of modules.
 
  -- Fathi Boudra <fabo@debian.org>  Sun, 06 Mar 2011 14:15:40 +0200
 

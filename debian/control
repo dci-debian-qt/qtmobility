@@ -20,6 +20,7 @@ Package: qtmobility-dev
 Section: libdevel
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
+ libqtconnectivity1 (= ${binary:Version}),
  libqtcontacts1 (= ${binary:Version}),
  libqtfeedback1 (= ${binary:Version}),
  libqtgallery1 (= ${binary:Version}),
@@ -39,6 +40,16 @@ Description: APIs for mobile device functionality - development files
  .
  This package contains the development files needed to build Qt applications
  using Qt Mobility libraries.
+
+Package: libqtconnectivity1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n
+Description: Qt Mobility Connectivity module
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains the Connectivity API. It provides APIs for working with
+ local devices.
 
 Package: libqtcontacts1
 Architecture: any
@@ -172,6 +183,14 @@ Description: Qt Mobility Versit (Organizer) module
  documents. It interfaces the Organizer API and uses the same framework as for
  vCards.
 
+Package: libdeclarative-connectivity
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt Mobility Connectivity QML plugin
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains the Connectivity QML plugin for QtDeclarative.
+
 Package: libdeclarative-contacts
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
@@ -179,6 +198,14 @@ Description: Qt Mobility Contacts QML plugin
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
  This package contains the Contacts QML plugin for QtDeclarative.
+
+Package: libdeclarative-feedback
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt Mobility Feedback QML plugin
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains the Feedback QML plugin for QtDeclarative.
 
 Package: libdeclarative-gallery
 Architecture: any
@@ -211,6 +238,14 @@ Description: Qt Mobility Multimedia QML plugin
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
  This package contains the Multimedia QML plugin for QtDeclarative.
+
+Package: libdeclarative-organizer
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt Mobility Organizer QML plugin
+ Qt Mobility delivers a set of new APIs for mobile device functionality.
+ .
+ This package contains the Organizer QML plugin for QtDeclarative.
 
 Package: libdeclarative-publishsubscribe
 Architecture: any
@@ -277,6 +312,7 @@ Priority: extra
 Architecture: any
 Section: debug
 Depends: ${shlibs:Depends}, ${misc:Depends},
+ libqtconnectivity1 (= ${binary:Version}),
  libqtcontacts1 (= ${binary:Version}),
  libqtfeedback1 (= ${binary:Version}),
  libqtgallery1 (= ${binary:Version}),

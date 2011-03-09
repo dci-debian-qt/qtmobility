@@ -21,7 +21,7 @@ override_dh_auto_configure:
 	    -examplesdir "/usr/lib/qtmobility/examples" \
 	    -examples \
 	    -demos \
-	    -modules "location contacts multimedia publishsubscribe versit messaging systeminfo serviceframework sensors gallery organizer feedback"
+	    -modules "location contacts multimedia publishsubscribe versit messaging systeminfo serviceframework sensors gallery organizer feedback connectivity"
 
 override_dh_auto_install:
 	dh_auto_install
