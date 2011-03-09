@@ -1,6 +1,4 @@
 no_rpath.patch
-ftbfs_multimedia_examples.patch
 fix_translations_install_path.patch
-enable_pkgconfig_support.patch
 use_isabspath.patch
-qmf_2010w36_support.patch
+revert_QTMOBILITY-614.patch
