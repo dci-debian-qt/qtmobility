@@ -3,12 +3,12 @@ Description: install translations in /usr/share/qtmobility/translations/
 Author: Fathi Boudra <fabo@debian.org>
 --- a/translations/translations.pro
 +++ b/translations/translations.pro
-@@ -42,7 +42,7 @@ isEmpty(vcproj) {
-     QMAKE_EXTRA_COMPILERS += phony_src
+@@ -99,7 +99,7 @@ isEmpty(vcproj) {
  }
  
--translations.path = $${QT_MOBILITY_PREFIX}/translations
-+translations.path = $${QT_MOBILITY_PREFIX}/share/qtmobility/translations
- translations.files = $$TRANSLATIONS
- translations.files ~= s,\\.ts$,.qm,g
- translations.files ~= s,^,$$OUT_PWD/,g
+ qmfiles.files = $$prependAll(LANGUAGES, $$OUT_PWD/qtmobility_,.qm)
+-meego|maemo6 {
++meego|maemo6|linux-* {
+     qmfiles.path = $${QT_MOBILITY_PREFIX}/share/qtmobility/translations
+ } else {
+     qmfiles.path = $${QT_MOBILITY_PREFIX}/translations

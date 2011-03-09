@@ -2,15 +2,15 @@ Description: Remove rpath
 Author: Fathi Boudra <fabo@debian.org>
 --- a/common.pri
 +++ b/common.pri
-@@ -114,7 +114,6 @@ contains(build_unit_tests, yes) {
+@@ -115,7 +115,6 @@ contains(build_unit_tests, yes) {
      MOC_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/moc
      RCC_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/rcc
      UI_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET/ui
 -    QMAKE_RPATHDIR += $$QT_MOBILITY_LIB
  } else {
      # Unit test code (no plugins! test plugins are just normal plugins installed elsewhere)
-     QT *= testlib
-@@ -125,7 +124,6 @@ contains(build_unit_tests, yes) {
+     testcase:QT *= testlib
+@@ -126,7 +125,6 @@ contains(build_unit_tests, yes) {
      MOC_DIR = $$OUTPUT_DIR/build/tests/$$SUBDIRPART/$$TARGET/moc
      RCC_DIR = $$OUTPUT_DIR/build/tests/$$SUBDIRPART/$$TARGET/rcc
      UI_DIR = $$OUTPUT_DIR/build/tests/$$SUBDIRPART/$$TARGET/ui
@@ -73,17 +73,6 @@ Author: Fathi Boudra <fabo@debian.org>
  HEADERS = \
      radio.h
    
---- a/examples/videographicsitem/videographicsitem.pro
-+++ b/examples/videographicsitem/videographicsitem.pro
-@@ -7,8 +7,6 @@ include(../examples.pri)
- CONFIG += mobility
- MOBILITY = multimedia
- 
--QMAKE_RPATHDIR += $$DESTDIR
--
- contains(QT_CONFIG, opengl): QT += opengl
- 
- HEADERS   += videoplayer.h \
 --- a/examples/videowidget/videowidget.pro
 +++ b/examples/videowidget/videowidget.pro
 @@ -7,8 +7,6 @@ include(../examples.pri)
@@ -95,22 +84,32 @@ Author: Fathi Boudra <fabo@debian.org>
  HEADERS = \
      videoplayer.h \
      videowidget.h \
+--- a/examples/videographicsitem/videographicsitem.pro
++++ b/examples/videographicsitem/videographicsitem.pro
+@@ -7,7 +7,6 @@ include(../examples.pri)
+ CONFIG += mobility
+ MOBILITY = multimedia
+ 
+-QMAKE_RPATHDIR += $$DESTDIR
+ 
+ !symbian:contains(QT_CONFIG, opengl): QT += opengl
+ 
 --- a/features/basic_examples_setup.pri
 +++ b/features/basic_examples_setup.pri
-@@ -24,7 +24,6 @@ UI_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART
- OBJECTS_DIR = $$OUTPUT_DIR/build/$$SUBDIRPART/$$TARGET
- mac:LIBS+= -F$$OUTPUT_DIR/lib
- LIBS+= -L$$OUTPUT_DIR/lib
+@@ -42,7 +42,6 @@ mac:contains(QT_CONFIG,qt_framework) {
+ }
+ QMAKE_LIBDIR = $$OUTPUT_DIR/lib
+ 
 -QMAKE_RPATHDIR+=$$QT_MOBILITY_LIB
  INCLUDEPATH+= $$QT_MOBILITY_SOURCE_TREE/src/global
  
  maemo6 {
 --- a/features/mobility.prf.template
 +++ b/features/mobility.prf.template
-@@ -12,7 +12,6 @@
- mac: LIBS += -F$${MOBILITY_LIB}
+@@ -36,7 +36,6 @@ defineTest(qtMobilityAddLibrary) {
+     LIBS+= -L$${MOBILITY_LIB}
+ }
  
- LIBS+= -L$${MOBILITY_LIB}
 -QMAKE_RPATHDIR+=$${MOBILITY_LIB}
  
  # versit depends on contacts
