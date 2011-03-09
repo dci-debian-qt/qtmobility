@@ -19,6 +19,7 @@ override_dh_auto_configure:
 	    -plugindir "/usr/lib/qt4/plugins" \
 	    -demosdir "/usr/lib/qtmobility/demos" \
 	    -examplesdir "/usr/lib/qtmobility/examples" \
+	    -languages "ar cs da de es fr he hu ja pl pt ru sk sl sv zh_CN zh_TW" \
 	    -examples \
 	    -demos \
 	    -modules "location contacts multimedia publishsubscribe versit messaging systeminfo serviceframework sensors gallery organizer feedback connectivity"
