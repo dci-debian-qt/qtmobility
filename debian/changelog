@@ -16,6 +16,9 @@ qtmobility (1.2.0~beta0+git3174-1) unstable; urgency=low
   * Update debian/rules:
     - add connectivity to the list of modules.
     - add -languages configure option.
+    - remove pkgconfig fix - pkgconfig files aren't shipped undet Linux.
+    - fix executable permissions files.
+    - fix typo libs -> lib.
   * Update debian/*.install files.
 
  -- Fathi Boudra <fabo@debian.org>  Sun, 06 Mar 2011 14:15:40 +0200

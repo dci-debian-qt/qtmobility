@@ -26,12 +26,16 @@ override_dh_auto_configure:
 
 override_dh_auto_install:
 	dh_auto_install
-	# Fix wrong path in pkgconfig files
-	find $(CURDIR)/debian/tmp/usr/lib/pkgconfig -type f -name '*.pc' \
-		-exec perl -pi -e "s, -L$(CURDIR)/?\S+,,g" {} \;
-	# Fix wrong path in prl files
 	find $(CURDIR)/debian/tmp/usr/lib -type f -name '*.prl' \
 		-exec sed -i -e "/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/" {} \;
+	# Fix executable permissions
+	find $(CURDIR)/debian/tmp/usr/lib/qtmobility -type f -perm /u+x,g+x,o+x \( -false \
+		-o -name \*.png \
+		-o -name \*.qml \
+		-o -name \*.sci \
+		-o -name \*.txt \
+		-o -name qmldir \
+		\) | xargs chmod -x
 
 override_dh_auto_clean:
 	dh_auto_clean
@@ -46,4 +50,4 @@ override_dh_auto_clean:
 	    -o -type f -name config.\* \
 	    -o -type f -name mobility\*.prf \
 	\) -delete
-	rm -rf include libs
+	rm -rf include lib
