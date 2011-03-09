@@ -15,6 +15,7 @@ qtmobility (1.2.0~beta0+git3174-1) unstable; urgency=low
       libdeclarative-organizer and libqtconnectivity1 packages.
   * Update debian/rules:
     - add connectivity to the list of modules.
+  * Update debian/*.install files.
 
  -- Fathi Boudra <fabo@debian.org>  Sun, 06 Mar 2011 14:15:40 +0200
 
