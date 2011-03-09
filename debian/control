@@ -134,8 +134,8 @@ Description: Qt Mobility Sensors module
 
 Package: libqtserviceframework1
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, hal
-Suggests: qtmobility-l10n
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: qtmobility-l10n, hal
 Description: Qt Mobility Service Framework module
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
