@@ -1,3 +1,8 @@
+qtmobility (1.2.0~beta0+git3174-2) UNRELEASED; urgency=low
+
+
+ -- Modestas Vainius <modax@debian.org>  Thu, 24 Mar 2011 15:32:29 +0200
+
 qtmobility (1.2.0~beta0+git3174-1) unstable; urgency=low
 
   * New upstream snapshot based on master branch - Upload to Sid.
