@@ -1,4 +1,5 @@
 usr/bin/icheck
+usr/bin/ndefhandlergen
 usr/bin/qcrmlgen
 usr/bin/servicedbgen
 usr/bin/servicexmlgen
@@ -16,6 +17,7 @@ usr/include/QtConnectivity/QBluetoothTransferManager
 usr/include/QtConnectivity/QBluetoothTransferReply
 usr/include/QtConnectivity/QBluetoothTransferRequest
 usr/include/QtConnectivity/QBluetoothUuid
+usr/include/QtConnectivity/QDeclarativeNdefRecord
 usr/include/QtConnectivity/QL2capServer
 usr/include/QtConnectivity/QL2capSocket
 usr/include/QtConnectivity/QLlcpServer
@@ -135,6 +137,7 @@ usr/include/QtLocation/QGeoBoundingCircle
 usr/include/QtLocation/QGeoCoordinate
 usr/include/QtLocation/QGeoManeuver
 usr/include/QtLocation/QGeoMapCircleObject
+usr/include/QtLocation/QGeoMapCustomObject
 usr/include/QtLocation/QGeoMapData
 usr/include/QtLocation/QGeoMapGroupObject
 usr/include/QtLocation/QGeoMapObject
@@ -221,7 +224,6 @@ usr/include/QtMessaging/QMessageId
 usr/include/QtMessaging/QMessageManager
 usr/include/QtMessaging/QMessageService
 usr/include/QtMessaging/QMessageSortOrder
-usr/include/QtMessaging/QMessageStore
 usr/include/QtMobility/QLatin1Constant
 usr/include/QtMobility/qlatin1constant.h
 usr/include/QtMobility/qmalgorithms.h
@@ -243,6 +245,8 @@ usr/include/QtMultimediaKit/QAudioInput
 usr/include/QtMultimediaKit/QAudioOutput
 usr/include/QtMultimediaKit/QAudioSystemPlugin
 usr/include/QtMultimediaKit/QCamera
+usr/include/QtMultimediaKit/QCameraCaptureBufferFormatControl
+usr/include/QtMultimediaKit/QCameraCaptureDestinationControl
 usr/include/QtMultimediaKit/QCameraControl
 usr/include/QtMultimediaKit/QCameraExposure
 usr/include/QtMultimediaKit/QCameraExposureControl
