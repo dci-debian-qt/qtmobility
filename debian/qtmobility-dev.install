@@ -2,6 +2,7 @@ usr/bin/qcrmlgen
 usr/bin/servicedbgen
 usr/bin/servicexmlgen
 usr/bin/vsexplorer
+usr/include/QtConnectivity/*.h
 usr/include/QtConnectivity/QBluetoothAddress
 usr/include/QtConnectivity/QBluetoothDeviceDiscoveryAgent
 usr/include/QtConnectivity/QBluetoothDeviceInfo
@@ -31,7 +32,7 @@ usr/include/QtConnectivity/QNearFieldTagType4
 usr/include/QtConnectivity/QNearFieldTarget
 usr/include/QtConnectivity/QRfcommServer
 usr/include/QtConnectivity/QRfcommSocket
-usr/include/QtConnectivity/*.h
+usr/include/QtContacts/*.h
 usr/include/QtContacts/QContact
 usr/include/QtContacts/QContactAbstractRequest
 usr/include/QtContacts/QContactAction
@@ -100,7 +101,7 @@ usr/include/QtContacts/QContactType
 usr/include/QtContacts/QContactUnionFilter
 usr/include/QtContacts/QContactUrl
 usr/include/QtContacts/qcontact.h
-usr/include/QtContacts/*.h
+usr/include/QtFeedback/*.h
 usr/include/QtFeedback/QFeedbackActuator
 usr/include/QtFeedback/QFeedbackEffect
 usr/include/QtFeedback/QFeedbackFileEffect
@@ -109,7 +110,7 @@ usr/include/QtFeedback/QFeedbackHapticsEffect
 usr/include/QtFeedback/QFeedbackHapticsInterface
 usr/include/QtFeedback/QFeedbackInterface
 usr/include/QtFeedback/QFeedbackThemeInterface
-usr/include/QtFeedback/*.h
+usr/include/QtGallery/*.h
 usr/include/QtGallery/QAbstractGallery
 usr/include/QtGallery/QDocumentGallery
 usr/include/QtGallery/QGalleryAbstractRequest
@@ -124,7 +125,7 @@ usr/include/QtGallery/QGalleryResource
 usr/include/QtGallery/QGalleryResultSet
 usr/include/QtGallery/QGalleryTypeRequest
 usr/include/QtGallery/QGalleryUnionFilter
-usr/include/QtGallery/*.h
+usr/include/QtLocation/*.h
 usr/include/QtLocation/QGeoAddress
 usr/include/QtLocation/QGeoAreaMonitor
 usr/include/QtLocation/QGeoBoundingArea
@@ -200,7 +201,7 @@ usr/include/QtLocation/QLandmarkSaveRequest
 usr/include/QtLocation/QLandmarkSortOrder
 usr/include/QtLocation/QLandmarkUnionFilter
 usr/include/QtLocation/QNmeaPositionInfoSource
-usr/include/QtLocation/*.h
+usr/include/QtMessaging/*.h
 usr/include/QtMessaging/QMessage
 usr/include/QtMessaging/QMessageAccount
 usr/include/QtMessaging/QMessageAccountFilter
@@ -220,11 +221,11 @@ usr/include/QtMessaging/QMessageManager
 usr/include/QtMessaging/QMessageService
 usr/include/QtMessaging/QMessageSortOrder
 usr/include/QtMessaging/QMessageStore
-usr/include/QtMessaging/*.h
 usr/include/QtMobility/QLatin1Constant
 usr/include/QtMobility/qlatin1constant.h
 usr/include/QtMobility/qmalgorithms.h
 usr/include/QtMobility/qmobilityglobal.h
+usr/include/QtMultimediaKit/*.h
 usr/include/QtMultimediaKit/QAbstractAudioDeviceInfo
 usr/include/QtMultimediaKit/QAbstractAudioInput
 usr/include/QtMultimediaKit/QAbstractAudioOutput
@@ -298,7 +299,7 @@ usr/include/QtMultimediaKit/QVideoSurfaceFormat
 usr/include/QtMultimediaKit/QVideoWidget
 usr/include/QtMultimediaKit/QVideoWidgetControl
 usr/include/QtMultimediaKit/QVideoWindowControl
-usr/include/QtMultimediaKit/*.h
+usr/include/QtOrganizer/*.h
 usr/include/QtOrganizer/QOrganizerAbstractRequest
 usr/include/QtOrganizer/QOrganizerCollection
 usr/include/QtOrganizer/QOrganizerCollectionChangeSet
@@ -366,11 +367,11 @@ usr/include/QtOrganizer/QOrganizerTodo
 usr/include/QtOrganizer/QOrganizerTodoOccurrence
 usr/include/QtOrganizer/QOrganizerTodoProgress
 usr/include/QtOrganizer/QOrganizerTodoTime
-usr/include/QtOrganizer/*.h
+usr/include/QtPublishSubscribe/*.h
 usr/include/QtPublishSubscribe/QValueSpace
 usr/include/QtPublishSubscribe/QValueSpacePublisher
 usr/include/QtPublishSubscribe/QValueSpaceSubscriber
-usr/include/QtPublishSubscribe/*.h
+usr/include/QtSensors/*.h
 usr/include/QtSensors/QAccelerometer
 usr/include/QtSensors/QAccelerometerFilter
 usr/include/QtSensors/QAccelerometerReading
@@ -409,7 +410,7 @@ usr/include/QtSensors/QSensorReading
 usr/include/QtSensors/QTapFilter
 usr/include/QtSensors/QTapReading
 usr/include/QtSensors/QTapSensor
-usr/include/QtSensors/*.h
+usr/include/QtServiceFramework/*.h
 usr/include/QtServiceFramework/QAbstractSecuritySession
 usr/include/QtServiceFramework/QRemoteServiceRegister
 usr/include/QtServiceFramework/QService
@@ -418,7 +419,7 @@ usr/include/QtServiceFramework/QServiceFilter
 usr/include/QtServiceFramework/QServiceInterfaceDescriptor
 usr/include/QtServiceFramework/QServiceManager
 usr/include/QtServiceFramework/QServicePluginInterface
-usr/include/QtServiceFramework/*.h
+usr/include/QtSystemInfo/*.h
 usr/include/QtSystemInfo/QSystemAlignedTimer
 usr/include/QtSystemInfo/QSystemBatteryInfo
 usr/include/QtSystemInfo/QSystemDeviceInfo
@@ -427,7 +428,7 @@ usr/include/QtSystemInfo/QSystemInfo
 usr/include/QtSystemInfo/QSystemNetworkInfo
 usr/include/QtSystemInfo/QSystemScreenSaver
 usr/include/QtSystemInfo/QSystemStorageInfo
-usr/include/QtSystemInfo/*.h
+usr/include/QtVersit/*.h
 usr/include/QtVersit/QVersitContactExporter
 usr/include/QtVersit/QVersitContactExporterDetailHandler
 usr/include/QtVersit/QVersitContactExporterDetailHandlerV2
@@ -442,7 +443,7 @@ usr/include/QtVersit/QVersitProperty
 usr/include/QtVersit/QVersitReader
 usr/include/QtVersit/QVersitResourceHandler
 usr/include/QtVersit/QVersitWriter
-usr/include/QtVersit/*.h
+usr/include/QtVersitOrganizer/*.h
 usr/include/QtVersitOrganizer/QVersitOrganizerExporter
 usr/include/QtVersitOrganizer/QVersitOrganizerExporterDetailHandler
 usr/include/QtVersitOrganizer/QVersitOrganizerHandler
@@ -450,7 +451,6 @@ usr/include/QtVersitOrganizer/QVersitOrganizerHandlerFactory
 usr/include/QtVersitOrganizer/QVersitOrganizerImporter
 usr/include/QtVersitOrganizer/QVersitOrganizerImporterPropertyHandler
 usr/include/QtVersitOrganizer/QVersitTimeZoneHandler
-usr/include/QtVersitOrganizer/*.h
 usr/lib/libQtConnectivity.prl
 usr/lib/libQtConnectivity.so
 usr/lib/libQtContacts.prl
