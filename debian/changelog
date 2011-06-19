@@ -2,6 +2,7 @@ qtmobility (1.2.0-1) unstable; urgency=low
 
   * New upstream release.
   * Drop revert_QTMOBILITY-614.patch.
+  * Restore icheck and conflicts against icheck package.
 
  -- Fathi Boudra <fabo@debian.org>  Sun, 19 Jun 2011 14:49:12 +0300
 

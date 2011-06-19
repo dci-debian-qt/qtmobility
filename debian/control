@@ -44,6 +44,7 @@ Depends: libqtconnectivity1 (= ${binary:Version}),
          servicefw,
          ${misc:Depends},
          ${shlibs:Depends}
+Conflicts: icheck
 Description: APIs for mobile device functionality - development files
  Qt Mobility delivers a set of new APIs for mobile device functionality.
  .
