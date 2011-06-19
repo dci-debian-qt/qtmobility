@@ -1,6 +1,10 @@
 Description: use isAbsPath() for Debian instead of pathhelper.
 pathhelper uses abs_path and returns undef for non-existent path.
 Author: Fathi Boudra <fabo@debian.org>
+---
+ configure |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 --- a/configure
 +++ b/configure
 @@ -58,7 +58,7 @@ isAbsPath() {

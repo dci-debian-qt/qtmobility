@@ -1,5 +1,19 @@
 Description: Remove rpath
 Author: Fathi Boudra <fabo@debian.org>
+---
+ common.pri                                        |    2 --
+ examples/audiodevices/audiodevices.pro            |    2 --
+ examples/audioinput/audioinput.pro                |    2 --
+ examples/audiooutput/audiooutput.pro              |    2 --
+ examples/audiorecorder/audiorecorder.pro          |    2 --
+ examples/declarative-systeminfo/device/device.pro |    3 ---
+ examples/radio/radio.pro                          |    2 --
+ examples/videographicsitem/videographicsitem.pro  |    1 -
+ examples/videowidget/videowidget.pro              |    2 --
+ features/basic_examples_setup.pri                 |    1 -
+ features/mobility.prf.template                    |    1 -
+ 11 files changed, 20 deletions(-)
+
 --- a/common.pri
 +++ b/common.pri
 @@ -115,7 +115,6 @@ contains(build_unit_tests, yes) {
@@ -20,7 +34,7 @@ Author: Fathi Boudra <fabo@debian.org>
  contains(TEMPLATE,.*lib):DEFINES += QT_SHARED
 --- a/examples/audiodevices/audiodevices.pro
 +++ b/examples/audiodevices/audiodevices.pro
-@@ -7,8 +7,6 @@ include(../examples.pri)
+@@ -7,8 +7,6 @@ include(../mobility_examples.pri)
  CONFIG += mobility
  MOBILITY = multimedia
  
@@ -31,7 +45,7 @@ Author: Fathi Boudra <fabo@debian.org>
  SOURCES       = audiodevices.cpp \
 --- a/examples/audioinput/audioinput.pro
 +++ b/examples/audioinput/audioinput.pro
-@@ -7,8 +7,6 @@ include(../examples.pri)
+@@ -7,8 +7,6 @@ include(../mobility_examples.pri)
  CONFIG += mobility
  MOBILITY = multimedia
  
@@ -42,7 +56,7 @@ Author: Fathi Boudra <fabo@debian.org>
  SOURCES       = audioinput.cpp \
 --- a/examples/audiooutput/audiooutput.pro
 +++ b/examples/audiooutput/audiooutput.pro
-@@ -7,8 +7,6 @@ include(../examples.pri)
+@@ -7,8 +7,6 @@ include(../mobility_examples.pri)
  CONFIG += mobility
  MOBILITY = multimedia
  
@@ -53,7 +67,7 @@ Author: Fathi Boudra <fabo@debian.org>
  SOURCES       = audiooutput.cpp \
 --- a/examples/audiorecorder/audiorecorder.pro
 +++ b/examples/audiorecorder/audiorecorder.pro
-@@ -7,8 +7,6 @@ include(../examples.pri)
+@@ -7,8 +7,6 @@ include(../mobility_examples.pri)
  CONFIG += mobility
  MOBILITY = multimedia
  
@@ -64,7 +78,7 @@ Author: Fathi Boudra <fabo@debian.org>
    
 --- a/examples/radio/radio.pro
 +++ b/examples/radio/radio.pro
-@@ -7,8 +7,6 @@ include(../examples.pri)
+@@ -7,8 +7,6 @@ include(../mobility_examples.pri)
  CONFIG += mobility
  MOBILITY = multimedia
  
@@ -75,7 +89,7 @@ Author: Fathi Boudra <fabo@debian.org>
    
 --- a/examples/videowidget/videowidget.pro
 +++ b/examples/videowidget/videowidget.pro
-@@ -7,8 +7,6 @@ include(../examples.pri)
+@@ -7,8 +7,6 @@ include(../mobility_examples.pri)
  CONFIG += mobility
  MOBILITY = multimedia
  
@@ -86,7 +100,7 @@ Author: Fathi Boudra <fabo@debian.org>
      videowidget.h \
 --- a/examples/videographicsitem/videographicsitem.pro
 +++ b/examples/videographicsitem/videographicsitem.pro
-@@ -7,7 +7,6 @@ include(../examples.pri)
+@@ -7,7 +7,6 @@ include(../mobility_examples.pri)
  CONFIG += mobility
  MOBILITY = multimedia
  
@@ -114,3 +128,12 @@ Author: Fathi Boudra <fabo@debian.org>
  
  # versit depends on contacts
  contains(MOBILITY, versit) {
+--- a/examples/declarative-systeminfo/device/device.pro
++++ b/examples/declarative-systeminfo/device/device.pro
+@@ -17,6 +17,3 @@ symbian {
+ }
+ RESOURCES += device.qrc
+ 
+-QMAKE_LFLAGS_DEBUG += "-Wl,-rpath,/home/user/qt/lib"
+-QMAKE_LFLAGS_RPATH += "-Wl,-rpath,/home/user/qt/lib"
+-QMAKE_LFLAGS_RELEASE += "-Wl,-rpath,/home/user/qt/lib"
