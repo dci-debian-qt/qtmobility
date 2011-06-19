@@ -1,3 +1,9 @@
+qtmobility (1.2.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Fathi Boudra <fabo@debian.org>  Sun, 19 Jun 2011 14:49:12 +0300
+
 qtmobility (1.2.0~beta0+git3174-2) unstable; urgency=high
 
   * Do not ship /usr/bin/icheck for now. (Closes: #617725)
