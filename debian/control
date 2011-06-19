@@ -18,7 +18,7 @@ Build-Depends: debhelper (>= 7.4.15),
                network-manager-dev [!kfreebsd-amd64 !kfreebsd-i386 !hurd-i386],
                pkg-kde-tools (>= 0.6.4),
                qmf-dev (>= 1.0~2010w39)
-Standards-Version: 3.9.1
+Standards-Version: 3.9.2
 Section: libs
 Homepage: http://labs.trolltech.com/page/Projects/QtMobility
 Vcs-Git: git://git.debian.org/pkg-kde/qt/qtmobility.git
