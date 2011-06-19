@@ -1,4 +1,3 @@
 no_rpath.patch
 fix_translations_install_path.patch
 use_isabspath.patch
-revert_QTMOBILITY-614.patch
