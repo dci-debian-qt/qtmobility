@@ -1,3 +1,8 @@
+qtmobility (1.2.0-2) UNRELEASED; urgency=low
+
+
+ -- Fathi Boudra <fabo@debian.org>  Tue, 21 Jun 2011 12:47:36 +0200
+
 qtmobility (1.2.0-1) unstable; urgency=low
 
   * New upstream release.
