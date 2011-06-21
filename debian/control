@@ -3,19 +3,19 @@ Priority: optional
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Fathi Boudra <fabo@debian.org>
 Build-Depends: debhelper (>= 7.4.15),
-               libasound2-dev [!kfreebsd-amd64 !kfreebsd-i386 !hurd-i386],
+               libasound2-dev [linux-any],
                libblkid-dev,
-               libbluetooth-dev [!kfreebsd-amd64 !kfreebsd-i386 !hurd-i386],
+               libbluetooth-dev [linux-any],
                libgstreamer-plugins-base0.10-dev,
                libpulse-dev,
                libqt4-dev (>= 4:4.7.0~rc1),
                libqt4-opengl-dev (>= 4:4.7.0~rc1),
-               libudev-dev [!kfreebsd-amd64 !kfreebsd-i386 !hurd-i386],
+               libudev-dev [linux-any],
                libx11-dev,
                libxext-dev,
                libxrandr-dev,
                libxv-dev,
-               network-manager-dev [!kfreebsd-amd64 !kfreebsd-i386 !hurd-i386],
+               network-manager-dev [linux-any],
                pkg-kde-tools (>= 0.6.4),
                qmf-dev (>= 1.0~2010w39)
 Standards-Version: 3.9.2

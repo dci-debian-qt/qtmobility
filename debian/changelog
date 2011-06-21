@@ -1,5 +1,8 @@
 qtmobility (1.2.0-2) UNRELEASED; urgency=low
 
+  [ Pino Toscano ]
+  * Use wildcard architectures:
+    - !kfreebsd-i386 !kfreebsd-amd64 !hurd-i386 -> linux-any
 
  -- Fathi Boudra <fabo@debian.org>  Tue, 21 Jun 2011 12:47:36 +0200
 
