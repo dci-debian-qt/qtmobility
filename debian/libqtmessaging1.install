@@ -1,1 +1,1 @@
-usr/lib/libQtMessaging.so.*
+usr/lib/*/libQtMessaging.so.*

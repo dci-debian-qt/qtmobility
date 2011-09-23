@@ -3,6 +3,8 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
 # QMF environment variables should be set
 export QMF_INCLUDEDIR := /usr/include/qmfclient
 export QMF_LIBDIR := /usr/lib
@@ -14,9 +16,9 @@ override_dh_auto_configure:
 	./configure \
 	    -prefix "/usr" \
 	    -headerdir "/usr/include" \
-	    -libdir "/usr/lib" \
+	    -libdir "/usr/lib/$(DEB_HOST_MULTIARCH)" \
 	    -bindir "/usr/bin" \
-	    -plugindir "/usr/lib/qt4/plugins" \
+	    -plugindir "/usr/lib/$(DEB_HOST_MULTIARCH)/qt4/plugins" \
 	    -demosdir "/usr/lib/qtmobility/demos" \
 	    -examplesdir "/usr/lib/qtmobility/examples" \
 	    -languages "ar cs da de es fr he hu ja pl pt ru sk sl sv zh_CN zh_TW" \

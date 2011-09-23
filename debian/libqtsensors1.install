@@ -1,2 +1,2 @@
-usr/lib/libQtSensors.so.*
-usr/lib/qt4/plugins/sensors/libqtsensors_generic.so
+usr/lib/*/libQtSensors.so.*
+usr/lib/*/qt4/plugins/sensors/libqtsensors_generic.so

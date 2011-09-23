@@ -1,1 +1,1 @@
-usr/lib/libQtConnectivity.so.*
+usr/lib/*/libQtConnectivity.so.*

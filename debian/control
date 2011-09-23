@@ -2,14 +2,14 @@ Source: qtmobility
 Priority: optional
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Fathi Boudra <fabo@debian.org>
-Build-Depends: debhelper (>= 7.4.15),
+Build-Depends: debhelper (>= 8.1.3~),
                libasound2-dev [linux-any],
                libblkid-dev,
                libbluetooth-dev [linux-any],
                libgstreamer-plugins-base0.10-dev,
                libpulse-dev,
-               libqt4-dev (>= 4:4.7.0~rc1),
-               libqt4-opengl-dev (>= 4:4.7.0~rc1),
+               libqt4-dev (>= 4:4.7.4~),
+               libqt4-opengl-dev (>= 4:4.7.4~),
                libudev-dev [linux-any],
                libx11-dev,
                libxext-dev,
@@ -53,6 +53,8 @@ Description: APIs for mobile device functionality - development files
 
 Package: libqtconnectivity1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility Connectivity module
@@ -63,6 +65,8 @@ Description: Qt Mobility Connectivity module
 
 Package: libqtcontacts1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility Contacts module
@@ -73,6 +77,8 @@ Description: Qt Mobility Contacts module
 
 Package: libqtfeedback1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility Feedback module
@@ -83,6 +89,8 @@ Description: Qt Mobility Feedback module
 
 Package: libqtgallery1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility Document Gallery module
@@ -93,6 +101,8 @@ Description: Qt Mobility Document Gallery module
 
 Package: libqtlocation1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility Location module
@@ -103,6 +113,8 @@ Description: Qt Mobility Location module
 
 Package: libqtmessaging1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility Messaging module
@@ -113,6 +125,8 @@ Description: Qt Mobility Messaging module
 
 Package: libqtmultimediakit1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility MultimediaKit module
@@ -123,6 +137,8 @@ Description: Qt Mobility MultimediaKit module
 
 Package: libqtorganizer1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility Organizer module
@@ -135,6 +151,8 @@ Description: Qt Mobility Organizer module
 
 Package: libqtpublishsubscribe1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility Publish and Subscribe module
@@ -146,6 +164,8 @@ Description: Qt Mobility Publish and Subscribe module
 
 Package: libqtsensors1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: libqt4-sql-sqlite, ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility Sensors module
@@ -155,6 +175,8 @@ Description: Qt Mobility Sensors module
 
 Package: libqtserviceframework1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: hal, qtmobility-l10n
 Description: Qt Mobility Service Framework module
@@ -165,6 +187,8 @@ Description: Qt Mobility Service Framework module
 
 Package: libqtsysteminfo1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility System Information module
@@ -175,6 +199,8 @@ Description: Qt Mobility System Information module
 
 Package: libqtversit1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility Versit (vCard) module
@@ -184,6 +210,8 @@ Description: Qt Mobility Versit (vCard) module
 
 Package: libqtversitorganizer1
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: qtmobility-l10n
 Description: Qt Mobility Versit (Organizer) module
