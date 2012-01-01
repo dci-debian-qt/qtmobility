@@ -8,7 +8,7 @@ qtmobility (1.2.0-2) UNRELEASED; urgency=low
   * Convert the package to multiarch:
     - bump debian/compat to 9.
     - bump build dependency on debhelper >= 8.1.3~.
-    - bump build dependency on libqt4-dev and libqt4-opengl-dev >= 4:4.7.4~.
+    - bump build dependency on libqt4-dev and libqt4-opengl-dev >= 4:4.8.0~.
     - add Multi-Arch: same and Pre-Depends: ${misc:Pre-Depends} fields to
       shared libraries packages.
     - update installed files to multiarch paths.
