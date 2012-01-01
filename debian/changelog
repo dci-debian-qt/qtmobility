@@ -1,4 +1,4 @@
-qtmobility (1.2.0-2) UNRELEASED; urgency=low
+qtmobility (1.2.0-2) experimental; urgency=low
 
   [ Pino Toscano ]
   * Use wildcard architectures:
