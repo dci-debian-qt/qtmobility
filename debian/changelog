@@ -14,6 +14,11 @@ qtmobility (1.2.0-2) experimental; urgency=low
     - update installed files to multiarch paths.
     - add support for DEB_HOST_MULTIARCH, needed for libdir and plugindir.
   * Update debian/control: build depends on gdb >= 7.3 for gdb_dwarf_index.
+  * Add a set of patches, cherry-picked upstream, to fix build with Qt 4.8:
+    - QTMOBILITY-790_subdirs_for_serviceframework-b90cee3.patch
+    - Fix_metaobjectbuilder_build_errors_4.8_and_4.7-f102053.patch
+    - Fix_4.8_and_4.7_build_for_linux-eff4af5.patch
+    - Fix_4.8_4.7_linux_build-f9c87a7.patch
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 23 Sep 2011 09:29:49 +0300
 
