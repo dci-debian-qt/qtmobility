@@ -13,6 +13,7 @@ qtmobility (1.2.0-2) experimental; urgency=low
       shared libraries packages.
     - update installed files to multiarch paths.
     - add support for DEB_HOST_MULTIARCH, needed for libdir and plugindir.
+  * Update debian/control: build depends on gdb >= 7.3 for gdb_dwarf_index.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 23 Sep 2011 09:29:49 +0300
 
