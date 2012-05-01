@@ -1,2 +1,2 @@
-usr/lib/qt4/imports/QtMobility/publishsubscribe/libdeclarative_publishsubscribe.so
-usr/lib/qt4/imports/QtMobility/publishsubscribe/qmldir
+usr/lib/*/qt4/imports/QtMobility/publishsubscribe/libdeclarative_publishsubscribe.so
+usr/lib/*/qt4/imports/QtMobility/publishsubscribe/qmldir

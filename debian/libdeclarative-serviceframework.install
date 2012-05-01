@@ -1,2 +1,2 @@
-usr/lib/qt4/imports/QtMobility/serviceframework/libdeclarative_serviceframework.so
-usr/lib/qt4/imports/QtMobility/serviceframework/qmldir
+usr/lib/*/qt4/imports/QtMobility/serviceframework/libdeclarative_serviceframework.so
+usr/lib/*/qt4/imports/QtMobility/serviceframework/qmldir
