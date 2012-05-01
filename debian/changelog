@@ -1,3 +1,9 @@
+qtmobility (1.2.0-3) unstable; urgency=low
+
+  * Upload to Sid.
+
+ -- Fathi Boudra <fabo@debian.org>  Tue, 01 May 2012 21:44:58 +0300
+
 qtmobility (1.2.0-2) experimental; urgency=low
 
   [ Pino Toscano ]
