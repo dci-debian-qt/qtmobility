@@ -1,6 +1,9 @@
 qtmobility (1.2.0-3) unstable; urgency=low
 
   * Upload to Sid.
+  * Update debian/control:
+    - bump Qt build dependency to 4:4.8.1.
+    - bump Standards-Version to 3.9.3 (no changes needed).
 
  -- Fathi Boudra <fabo@debian.org>  Tue, 01 May 2012 21:44:58 +0300
 
