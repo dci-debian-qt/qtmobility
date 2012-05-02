@@ -5,3 +5,4 @@ Fix_4.8_4.7_linux_build-f9c87a7.patch
 no_rpath.patch
 fix_translations_install_path.patch
 use_isabspath.patch
+gcc-4.7_unistd.patch
